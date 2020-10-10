@@ -26,8 +26,8 @@ public class Database : MonoBehaviour
     }
 
     public int minute = 0;
-    public int hour = 0;
-    public int day = 0;
+    public int hour = 7;
+    public int day = 1;
     public SEASON season = SEASON.SPRING;
 
     public string minute_Text;
@@ -57,6 +57,8 @@ public class Database : MonoBehaviour
     private void Start()
     {
         AddItemList();
+        string.Format("{0:D2}", minute.ToString());
+        string.Format("{0:D2}", hour.ToString());
     }
 
     private void Update()
@@ -68,8 +70,8 @@ public class Database : MonoBehaviour
     //데이터 - UI텍스트 연동
     public void LinkDataToText()
     {
-        minute_Text = minute.ToString("D2");
-        hour_Text = hour.ToString("D2");
+        minute_Text = minute.ToString();
+        hour_Text = hour.ToString();
         day_Text = day.ToString() + "일";
         switch (season)
         {
@@ -156,9 +158,15 @@ public class Database : MonoBehaviour
                 if (day == 28)
                 {
                     if (season == SEASON.WINTER)
+                    {
                         season = SEASON.SPRING;
+                        day = 1;
+                    }
                     else
+                    {
                         season++;
+                        day = 1;
+                    }
                 }
                 else
                     day++;
