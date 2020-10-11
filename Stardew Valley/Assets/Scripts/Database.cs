@@ -9,6 +9,7 @@ public class Database : MonoBehaviour
 
     //아이템 관련 var
     public List<Item> itemList = new List<Item>();
+    public bool sellEnabled = false;
 
     //시간 관련 var
     public enum SEASON
