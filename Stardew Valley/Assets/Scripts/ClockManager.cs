@@ -8,19 +8,29 @@ public class ClockManager : MonoBehaviour
     public Text date_Text;
     public Text time_Text;
     public Text gold_Text;
+    public Text colon;
 
-    private Database db;
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        db = FindObjectOfType<Database>();
+        colon.text = ":";
+        StartCoroutine(BlinkText());
     }
-
     // Update is called once per frame
     void Update()
     {
-        date_Text.text = db.season_Text + " " +db.day_Text;
-        time_Text.text = db.hour_Text + ":" + db.minute_Text;
-        gold_Text.text = db.gold_Text;
+        date_Text.text = Database.instance.season_Text + " " + Database.instance.day_Text;
+        time_Text.text = Database.instance.hour_Text + " " + Database.instance.minute_Text;
+        gold_Text.text = Database.instance.gold_Text;
+    }
+
+    IEnumerator BlinkText()
+    {
+        while(true)
+        {
+            colon.gameObject.SetActive(true);
+            yield return new WaitForSeconds(0.5f);
+            colon.gameObject.SetActive(false);
+            yield return new WaitForSeconds(0.5f);
+        }
     }
 }

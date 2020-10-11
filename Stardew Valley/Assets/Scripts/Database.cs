@@ -1,20 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class Database : MonoBehaviour
 {
-    private static Database instance;
-    public static Database Instance
-    {
-        get
-        {
-            if (instance == null)
-                instance = FindObjectOfType<Database>();
-
-            return instance;
-        }
-    }
+    public static Database instance;
 
     //아이템 관련 var
     public List<Item> itemList = new List<Item>();
@@ -25,9 +16,9 @@ public class Database : MonoBehaviour
         SPRING, SUMMER, FALL, WINTER
     }
 
-    public int minute = 0;
-    public int hour = 7;
-    public int day = 1;
+    public int minute;
+    public int hour;
+    public int day;
     public SEASON season = SEASON.SPRING;
 
     public string minute_Text;
@@ -35,10 +26,12 @@ public class Database : MonoBehaviour
     public string day_Text;
     public string season_Text;
 
+    private DateTime loginTime;
+
     //플레이어 관련 var
     private const int MaxHp = 100;
-    public int curHp;
-    public int gold = 3000;
+    public int curHp = MaxHp;
+    public int gold;
     public string gold_Text;
 
 
@@ -57,22 +50,30 @@ public class Database : MonoBehaviour
     private void Start()
     {
         AddItemList();
-        string.Format("{0:D2}", minute.ToString());
-        string.Format("{0:D2}", hour.ToString());
+        InitializeVariables();
+        LinkDataToText();
+        loginTime = System.DateTime.Now;
     }
 
     private void Update()
     {
-        LinkDataToText();
+        TimeSpan timeChecker = System.DateTime.Now - loginTime;
+        if (timeChecker.TotalSeconds >= 6)
+        {
+            ChangeMinute(10);
+            loginTime = System.DateTime.Now;
+            LinkDataToText();
+        }
     }
 
 
     //데이터 - UI텍스트 연동
     public void LinkDataToText()
     {
-        minute_Text = minute.ToString();
-        hour_Text = hour.ToString();
-        day_Text = day.ToString() + "일";
+        minute_Text = minute.ToString("D2");
+        hour_Text = hour.ToString("D2");
+        day_Text = day.ToString();
+
         switch (season)
         {
             case SEASON.SPRING:
@@ -88,7 +89,21 @@ public class Database : MonoBehaviour
                 season_Text = "winter";
                 break;
         }
+
         gold_Text = gold.ToString();
+    }
+
+    //변수 초기화
+    public void InitializeVariables()
+    {
+        minute = 0;
+        hour = 7;
+        day = 1;
+
+        curHp = MaxHp;
+
+        season = SEASON.SPRING;
+        gold = 3000;
     }
 
     //아이템 관련 func
