@@ -6,12 +6,12 @@ using UnityEngine.UI;
 public class Inventory : MonoBehaviour
 {
     public static Inventory instance;
-    public InventorySlot[] slots;
+    private InventorySlot[] slots;
     public Image[] chosenBoxes;
 
-    public List<Item> inventoryItemList;
+    private List<Item> inventoryItemList;
 
-    //public Transform tf;
+    public Transform tf;
 
     private int selectedItem;
     private int selectedTab;
@@ -27,15 +27,20 @@ public class Inventory : MonoBehaviour
         instance = this;
 
         inventoryItemList = new List<Item>();
-        //slots = tf.GetComponentsInChildren<InventorySlot>();
+        slots = tf.GetComponentsInChildren<InventorySlot>();
     }
 
     
     private void Update()
     {
-        if(!stopKeyInput)
+
+    }
+
+    public void UpdateItem()
+    {
+        for(int i = 0; i < inventoryItemList.Count; i++)
         {
-            
+            slots[i].AddItem(inventoryItemList[i]);
         }
     }
 
@@ -50,10 +55,12 @@ public class Inventory : MonoBehaviour
                     if(inventoryItemList[j].itemID == _itemID) //있을 경우
                     {
                         inventoryItemList[j].itemCount += _itemCount; //슬롯에 갯수만 증가.
+                        UpdateItem();
                         return;
                     }    
                 }
                 inventoryItemList.Add(Database.instance.itemList[i]); //없을경우 새로 추가
+                UpdateItem();
                 return;
             }
         }

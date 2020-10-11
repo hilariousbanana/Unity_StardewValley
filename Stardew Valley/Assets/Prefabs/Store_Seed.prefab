@@ -146,6 +146,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemCode: 10004
   itemPrice: 100
+  itemType: 0
   noticePanel: {fileID: 0}
 --- !u!1 &2870995453971486937
 GameObject:
@@ -368,6 +369,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemCode: 10001
   itemPrice: 150
+  itemType: 0
   noticePanel: {fileID: 0}
 --- !u!1 &5452243318449832680
 GameObject:
@@ -515,6 +517,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemCode: 10005
   itemPrice: 50
+  itemType: 0
   noticePanel: {fileID: 0}
 --- !u!1 &5492371580715712779
 GameObject:
@@ -662,6 +665,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemCode: 10003
   itemPrice: 100
+  itemType: 0
   noticePanel: {fileID: 0}
 --- !u!1 &5631068635484604141
 GameObject:
@@ -1032,4 +1036,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemCode: 10002
   itemPrice: 180
+  itemType: 0
   noticePanel: {fileID: 0}

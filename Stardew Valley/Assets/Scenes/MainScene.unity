@@ -232,11 +232,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6683255931908861364, guid: 614e627abbed9774782005099bee43a7, type: 3}
   m_PrefabInstance: {fileID: 6683255930894408364}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1185339718 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 422603003013047045, guid: f94ef675da13a974d9bbb5b8440929b0, type: 3}
+--- !u!114 &1185339720 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1383234622810694645, guid: f94ef675da13a974d9bbb5b8440929b0, type: 3}
   m_PrefabInstance: {fileID: 3386702503056821785}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 776f4fb2d06b8f4498f6efbb541d44fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1227940568 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6850237177662222827, guid: e9ccdf885bbbf374eae3fb3d94c6874b, type: 3}
@@ -564,6 +570,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 623723030934095517, guid: f94ef675da13a974d9bbb5b8440929b0, type: 3}
+      propertyPath: slots.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 623723030934095517, guid: f94ef675da13a974d9bbb5b8440929b0, type: 3}
+      propertyPath: tf
+      value: 
+      objectReference: {fileID: 3386702503056821788}
     - target: {fileID: 1245635921156501177, guid: f94ef675da13a974d9bbb5b8440929b0, type: 3}
       propertyPath: noticePanel
       value: 
@@ -575,10 +589,10 @@ PrefabInstance:
     - target: {fileID: 2153424237485047757, guid: f94ef675da13a974d9bbb5b8440929b0, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1185339718}
+      objectReference: {fileID: 1185339720}
     - target: {fileID: 2153424237485047757, guid: f94ef675da13a974d9bbb5b8440929b0, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: 
+      value: BtnPurchase
       objectReference: {fileID: 0}
     - target: {fileID: 2616759689153745731, guid: f94ef675da13a974d9bbb5b8440929b0, type: 3}
       propertyPath: noticePanel
@@ -972,6 +986,11 @@ MonoBehaviour:
 --- !u!1 &3386702503056821787 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8081790536252421217, guid: f94ef675da13a974d9bbb5b8440929b0, type: 3}
+  m_PrefabInstance: {fileID: 3386702503056821785}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &3386702503056821788 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 3386702503332810521, guid: f94ef675da13a974d9bbb5b8440929b0, type: 3}
   m_PrefabInstance: {fileID: 3386702503056821785}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6683255930894408364

@@ -8,7 +8,7 @@ public class InventorySlot : MonoBehaviour
 {
     public Image icon;
     public TMP_Text itemCount_Text;
-
+    private Transform pos;
     public void AddItem(Item _item)
     { 
         icon.sprite = _item.itemIcon;

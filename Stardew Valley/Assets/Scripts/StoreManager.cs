@@ -9,10 +9,12 @@ public class StoreManager : MonoBehaviour
     public void OnMouseUp()
     {
         storeWindow.SetActive(true);
+        Database.instance.sellEnabled = true;
     }
 
     public void BtnOK()
     {
+        Database.instance.sellEnabled = false;
         storeWindow.SetActive(false);
     }
 

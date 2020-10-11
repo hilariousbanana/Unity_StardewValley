@@ -13,7 +13,7 @@ public class Buttons : MonoBehaviour
     void PurchaseItem(int _itemID, int _itemPrice)
     {
         Inventory.instance.GetAnItem(_itemID);
-        Database.instance.gold -= _itemPrice;
+        Database.instance.ChangeGold(-_itemPrice);
     }
 
     public void BtnPurchase()
