@@ -248,6 +248,29 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6850237177662222827, guid: e9ccdf885bbbf374eae3fb3d94c6874b, type: 3}
   m_PrefabInstance: {fileID: 6850237176702817075}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1399733958 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4123102688130889383, guid: 614e627abbed9774782005099bee43a7, type: 3}
+  m_PrefabInstance: {fileID: 6683255930894408364}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1399733959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1399733958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc1a8427b70d1c0428226773d2f95070, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  noticePanel: {fileID: 681624433}
+--- !u!61 &1399733960 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 3824591020632975732, guid: 614e627abbed9774782005099bee43a7, type: 3}
+  m_PrefabInstance: {fileID: 6683255930894408364}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1514125833
 GameObject:
   m_ObjectHideFlags: 0
@@ -602,6 +625,14 @@ PrefabInstance:
       propertyPath: noticePanel
       value: 
       objectReference: {fileID: 681624433}
+    - target: {fileID: 3173820913787535019, guid: f94ef675da13a974d9bbb5b8440929b0, type: 3}
+      propertyPath: panel
+      value: 
+      objectReference: {fileID: 681624433}
+    - target: {fileID: 3173820913787535019, guid: f94ef675da13a974d9bbb5b8440929b0, type: 3}
+      propertyPath: fadePanel
+      value: 
+      objectReference: {fileID: 626417538}
     - target: {fileID: 3386702503355712273, guid: f94ef675da13a974d9bbb5b8440929b0, type: 3}
       propertyPath: m_AnchorMin.y
       value: 0
@@ -726,6 +757,14 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3785604118424668034, guid: f94ef675da13a974d9bbb5b8440929b0, type: 3}
+      propertyPath: noticePanel
+      value: 
+      objectReference: {fileID: 681624433}
+    - target: {fileID: 3785604118424668034, guid: f94ef675da13a974d9bbb5b8440929b0, type: 3}
+      propertyPath: bedCol
+      value: 
+      objectReference: {fileID: 1399733960}
     - target: {fileID: 4205828536029041188, guid: f94ef675da13a974d9bbb5b8440929b0, type: 3}
       propertyPath: noticePanel
       value: 

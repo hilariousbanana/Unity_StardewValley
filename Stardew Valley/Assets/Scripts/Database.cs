@@ -20,6 +20,9 @@ public class Database : MonoBehaviour
     public int minute;
     public int hour;
     public int day;
+    public int sleepHour;
+    public bool isSleeping;
+    public bool reset;
     public SEASON season = SEASON.SPRING;
 
     public string minute_Text;
@@ -27,10 +30,9 @@ public class Database : MonoBehaviour
     public string day_Text;
     public string season_Text;
 
-    private DateTime loginTime;
 
     //플레이어 관련 var
-    private const int MaxHp = 100;
+    public const int MaxHp = 100;
     public int curHp = MaxHp;
     public int gold;
     public string gold_Text;
@@ -53,18 +55,11 @@ public class Database : MonoBehaviour
         AddItemList();
         InitializeVariables();
         LinkDataToText();
-        loginTime = System.DateTime.Now;
     }
 
     private void Update()
     {
-        TimeSpan timeChecker = System.DateTime.Now - loginTime;
-        if (timeChecker.TotalSeconds >= 6)
-        {
-            ChangeMinute(10);
-            loginTime = System.DateTime.Now;
-            LinkDataToText();
-        }
+        
     }
 
 
@@ -105,6 +100,9 @@ public class Database : MonoBehaviour
 
         season = SEASON.SPRING;
         gold = 3000;
+
+        isSleeping = false;
+        reset = false;
     }
 
     //아이템 관련 func
@@ -143,6 +141,8 @@ public class Database : MonoBehaviour
             curHp = 0;
         else
             curHp = temp;
+
+        LinkDataToText();
     }
 
     public int CurrentHP()
@@ -153,6 +153,7 @@ public class Database : MonoBehaviour
     public void ChangeGold(int _value)
     {
         gold += _value;
+        LinkDataToText();
     }
 
     public int CurrentGold()
@@ -168,7 +169,7 @@ public class Database : MonoBehaviour
         if (temp == 60)
         {
             minute = 0;
-            if (hour == 16)
+            if (hour == 24)
             {
                 hour = 7;
                 if (day == 28)
@@ -184,8 +185,6 @@ public class Database : MonoBehaviour
                         day = 1;
                     }
                 }
-                else
-                    day++;
             }
             else
                 hour++;
@@ -194,4 +193,38 @@ public class Database : MonoBehaviour
             minute = temp;
     }
 
+    public void RenewalDay()
+    {
+        hour = 7;
+        minute = 0;
+
+        if (day == 28)
+        {
+            if (season == SEASON.WINTER)
+            {
+                season = SEASON.SPRING;
+                day = 1;
+            }
+            else
+            {
+                season++;
+                day = 1;
+            }
+        }
+        else
+            day++;
+
+        LinkDataToText();
+    }
+
+    public void ResetDay()
+    {
+        hour = 7;
+        minute = 0;
+        curHp = MaxHp;
+
+        //이후 당일 시작 전까지 저장된 데이터 로드.(인벤토리 상황 등)
+
+        LinkDataToText();
+    }
 }
