@@ -10,10 +10,10 @@ public class GameManager : MonoBehaviour
     enum GAMESTATE
     { 
         DAY,           
-        NIGHT,          //22시 이전에 잠 든 경우(다음날 HP == MaxHP)
-        LATENIGHT,      //22 ~ 24시 사이에 잠 든 경우 (다음날 HP == curHP * 1.2)
+        NIGHT,              //22시 이전에 잠 든 경우(다음날 HP == MaxHP)
+        LATENIGHT,       //22 ~ 24시 사이에 잠 든 경우 (다음날 HP == curHP * 1.2)
         OVERNIGHT,      //24시가 된 경우
-        GAMEOVER //Hp == 0
+        GAMEOVER        //Hp == 0
     }
 
     GAMESTATE state;

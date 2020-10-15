@@ -8,9 +8,15 @@ public class NoticeManager : MonoBehaviour
     public Image panel;
     public GameObject fadePanel;
 
+
+    private void Update()
+    {
+ 
+    }
+
     public void BtnOk()
     {
-        if(panel.sprite.name == "Sleep_Notice" || panel.sprite.name == "DayEnded_Notice") //잠들경우
+        if (panel.sprite.name == "Sleep_Notice" || panel.sprite.name == "DayEnded_Notice") //잠들경우
         {
             Time.timeScale = 0;
             fadePanel.SetActive(true);
@@ -18,14 +24,16 @@ public class NoticeManager : MonoBehaviour
             Database.instance.sleepHour = Database.instance.hour;
             Database.instance.isSleeping = true;
         }
-        else if(panel.sprite.name == "GameOver_Notice")
+        else if (panel.sprite.name == "GameOver_Notice")
         {
             Time.timeScale = 0;
             fadePanel.SetActive(true);
             Time.timeScale = 1;
             Database.instance.reset = true;
         }
-
+        else
+            Time.timeScale = 1;
+        panel.sprite = null;
         panel.gameObject.SetActive(false);
     }
 
@@ -46,7 +54,9 @@ public class NoticeManager : MonoBehaviour
             Database.instance.sleepHour = Database.instance.hour;
             Database.instance.isSleeping = true;
         }
-
+        else
+            Time.timeScale = 1;
+        panel.sprite = null;
         panel.gameObject.SetActive(false);
     }
 }
