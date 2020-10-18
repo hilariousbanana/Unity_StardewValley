@@ -72,6 +72,7 @@ public class GameManager : MonoBehaviour
 
     void ChangeState(GAMESTATE _state)
     {
+        state = _state;
         switch(_state)
         {
             case GAMESTATE.NIGHT:

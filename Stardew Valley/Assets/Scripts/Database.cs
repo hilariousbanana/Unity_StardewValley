@@ -10,6 +10,10 @@ public class Database : MonoBehaviour
     //아이템 관련 var
     public List<Item> itemList = new List<Item>();
     public bool sellEnabled = false;
+    public int chosenItemID;
+    public int chosenSlot = 0;
+    public int chosenTile = 0;
+    public bool inFarm = false;
 
     //시간 관련 var
     public enum SEASON

@@ -5,32 +5,33 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class InventorySlot : MonoBehaviour, IPointerClickHandler
+public class InventorySlot : MonoBehaviour
 {
     public Image icon;
     public GameObject chosenBox;
     public TMP_Text itemCount_Text;
     public Transform pos;
     public bool usable = false;
+    public int slotNumber;
     private int clickedTimes = 0;
 
 
-    public void OnPointerClick(PointerEventData eventData)
+    public void Clicked()
     {
         clickedTimes++;
         if (usable == false) //처음 클릭 한 경우
         {
             clickedTimes = 1;
-
+            Database.instance.chosenSlot = slotNumber;
             usable = true;
-            chosenBox.transform.SetParent(pos.gameObject.transform);
-            chosenBox.transform.localPosition = pos.localPosition;
+            //chosenBox.transform.SetParent(pos.gameObject.transform);
+            //chosenBox.transform.localPosition = pos.localPosition;
         }
         if(usable == true && clickedTimes >=2)
         {
             usable = false;
         }
-        Debug.Log("Clicked.");
+        Debug.Log("Clicked. at" + slotNumber);
     }
 
     private void Update()
