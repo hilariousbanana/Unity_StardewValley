@@ -19,7 +19,7 @@ public class InventorySlot : MonoBehaviour
 
     public void Clicked()
     {
-        //Database.instance.chosenSlot = slotNumber;
+        Database.instance.chosenSlot = slotNumber;
         usable = true;
         chosenBox.transform.SetParent(pos.gameObject.transform);
         chosenBox.transform.position = pos.position;

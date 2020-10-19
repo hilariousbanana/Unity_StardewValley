@@ -11,6 +11,7 @@ public class TransferManager : MonoBehaviour
     private Camera cam;
     public Transform camPos;
     private BoxCollider2D boxCollider;
+    public int mapNumber;
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +27,7 @@ public class TransferManager : MonoBehaviour
         {
             panel.SetActive(true);
             StartCoroutine(MoveCoroutine());
+            Database.instance.curMapNum = mapNumber;
         }
     }
 

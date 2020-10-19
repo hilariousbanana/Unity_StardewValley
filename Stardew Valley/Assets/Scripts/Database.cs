@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEditorInternal;
 
 public class Database : MonoBehaviour
 {
@@ -42,6 +43,9 @@ public class Database : MonoBehaviour
     public string gold_Text;
 
 
+    //그 외
+    public int curMapNum;
+
     private void Awake()
     {
         if(instance == null)
@@ -63,7 +67,12 @@ public class Database : MonoBehaviour
 
     private void Update()
     {
-        
+        if (curMapNum == 1)
+        {
+            inFarm = true;
+        }
+        else
+            inFarm = false;
     }
 
 
@@ -107,6 +116,8 @@ public class Database : MonoBehaviour
 
         isSleeping = false;
         reset = false;
+
+        curMapNum = 0;
     }
 
     //아이템 관련 func
