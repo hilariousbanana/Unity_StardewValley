@@ -7,14 +7,12 @@ public class Inventory : MonoBehaviour
 {
     public static Inventory instance;
     private InventorySlot[] slots;
-    public Image[] chosenBoxes;
 
     public List<Item> inventoryItemList;
 
     public Transform tf;
 
-    private int selectedItem;
-    private int selectedTab;
+    public int selectedSlot;
 
     private bool itemActivated;
     private bool stopKeyInput;
@@ -40,6 +38,11 @@ public class Inventory : MonoBehaviour
 
         inventoryItemList = new List<Item>();
         slots = tf.GetComponentsInChildren<InventorySlot>();
+        
+        for(int i = 0; i < slots.Length; i++)
+        {
+            slots[i].slotNumber = i;
+        }
     }
 
 
@@ -83,21 +86,18 @@ public class Inventory : MonoBehaviour
         for (int i = 0; i < slots.Length; i++)
         {
             slots[i].RemoveItem();
-            slots[i].gameObject.SetActive(false);
         }
     }
 
-    public void UseAnItem()
+    public void UseAnItem(int _slotNum)
     {
-        for (int i = 0; i < inventoryItemList.Count; i++)
+        if (inventoryItemList[_slotNum].itemCount > 1)
+            inventoryItemList[_slotNum].itemCount--;
+        else
         {
-            if (inventoryItemList[i].itemCount > 1)
-                inventoryItemList[i].itemCount--;
-            else
-                inventoryItemList.RemoveAt(i);
-
+            inventoryItemList.RemoveAt(_slotNum);
             RemoveSlot();
-            break;
         }
+        UpdateItem();
     }
 }

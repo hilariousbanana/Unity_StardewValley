@@ -9,7 +9,8 @@ public class InventorySlot : MonoBehaviour
 {
     public Image icon;
     public GameObject chosenBox;
-    public TMP_Text itemCount_Text;
+    public Text itemCount_Text;
+    public Text slotNumber_Text;
     public Transform pos;
     public bool usable = false;
     public int slotNumber;
@@ -18,29 +19,21 @@ public class InventorySlot : MonoBehaviour
 
     public void Clicked()
     {
-        clickedTimes++;
-        if (usable == false) //처음 클릭 한 경우
-        {
-            clickedTimes = 1;
-            Database.instance.chosenSlot = slotNumber;
-            usable = true;
-            //chosenBox.transform.SetParent(pos.gameObject.transform);
-            //chosenBox.transform.localPosition = pos.localPosition;
-        }
-        if(usable == true && clickedTimes >=2)
-        {
-            usable = false;
-        }
+        //Database.instance.chosenSlot = slotNumber;
+        usable = true;
+        chosenBox.transform.SetParent(pos.gameObject.transform);
+        chosenBox.transform.position = pos.position;
+
         Debug.Log("Clicked. at" + slotNumber);
     }
 
     private void Update()
     {
-        
+        slotNumber_Text.text = slotNumber.ToString();
     }
 
     public void AddItem(Item _item)
-    { 
+    {
         icon.sprite = _item.itemIcon;
 
         if (_item.itemCount > 0)

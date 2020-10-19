@@ -20,12 +20,13 @@ public class TileManager : MonoBehaviour
     public TSTATE tileState;
 
     private GameObject player;
-    //public Image img;
+    public Image noticePanel;
     public Button butn;
 
     private float distance;
     private int seedType;
     public int tileNumber;
+    private int slotNumber =0;
 
     private DateTime plantedTime;
 
@@ -37,12 +38,14 @@ public class TileManager : MonoBehaviour
     void Start()
     {
         player = FindObjectOfType<MovingObject>().gameObject;
-        tileState = TSTATE.ACTIVATED;
+        tileState = TSTATE.PLANTABLE;
     }
 
     void Update()
     {
-        if(!isPlanted) //심은게 없는 경우
+        slotNumber = Database.instance.chosenSlot;
+
+        if (!isPlanted) //심은게 없는 경우
         {
             if (GetDistance() <= 315.5)
             {
@@ -117,19 +120,32 @@ public class TileManager : MonoBehaviour
 
     public void Clicked()
     {
-        Database.instance.chosenTile = tileNumber;
+        //Database.instance.chosenTile = tileNumber;
 
-        if (tileState == TSTATE.STAGE5)
+        if (tileState == TSTATE.STAGE5) //추수
         {
             isReaped = true;
         }
-        else if(tileState == TSTATE.ACTIVATED)
+        else if(tileState == TSTATE.ACTIVATED) //심기
         {
-            seedType = Inventory.instance.inventoryItemList[Database.instance.chosenSlot].itemID;
-            tileState = TSTATE.STAGE1;
-            Debug.Log("is Clicked. And SeedType is" + seedType);
-            butn.image.sprite = Resources.Load($"ItemIcon/{seedType}_{tileState}", typeof(Sprite)) as Sprite;
-            Inventory.instance.UseAnItem();
+            if (Inventory.instance.inventoryItemList[slotNumber].itemType == Item.ItemType.Seed)
+            {
+                seedType = Inventory.instance.inventoryItemList[slotNumber].itemID;
+                tileState = TSTATE.STAGE1;
+                Debug.Log("is Clicked. And SeedType is" + seedType);
+                butn.image.sprite = Resources.Load($"ItemIcon/{seedType}_{tileState}", typeof(Sprite)) as Sprite;
+                Inventory.instance.UseAnItem(slotNumber);
+            }
+            else
+            {
+                noticePanel.sprite = Resources.Load("Sprites/" + "SeedOnly_Notice", typeof(Sprite)) as Sprite;
+                noticePanel.gameObject.SetActive(true);
+            }
+        }
+        else if(tileState == TSTATE.PLANTABLE)
+        {
+            noticePanel.sprite = Resources.Load("Sprites/" + "FarTile_Notice", typeof(Sprite)) as Sprite;
+            noticePanel.gameObject.SetActive(true);
         }
     }
 }
