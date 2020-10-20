@@ -2,6 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Data;
+using TMPro;
+using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -28,11 +30,14 @@ public class TileManager : MonoBehaviour
     public int tileNumber;
     private int slotNumber =0;
 
-    private DateTime plantedTime;
+    private int plantedDay = 0;
+    private int plantedHour = 0;
 
     private bool isPlanted = false;
     private bool isStarted = false;
     private bool isReaped = false;
+    private bool isReset = false;
+    private bool dayAfter = false;
 
     // Start is called before the first frame update
     void Start()
@@ -47,7 +52,7 @@ public class TileManager : MonoBehaviour
 
         if (!isPlanted) //심은게 없는 경우
         {
-            if (GetDistance() <= 315.5)
+            if (GetDistance() <=234.0f) //수치 수정해야함.
             {
                 ChangeState(TSTATE.ACTIVATED);
             }
@@ -60,9 +65,17 @@ public class TileManager : MonoBehaviour
         {
             if(!isStarted)
             {
-                plantedTime = System.DateTime.Now;
                 isStarted = true;
+                plantedDay = Database.instance.day;
+                plantedHour = Database.instance.hour;
+
+                CropTimer(plantedDay, plantedHour);
             }
+        }
+
+        if (Database.instance.day == 1 && !isReset) //새로운 달로 넘어가면 타일을 모두 리셋해줌.
+        {
+            ResetTile();
         }
     }
 
@@ -100,12 +113,21 @@ public class TileManager : MonoBehaviour
         return distance;
     }
 
-    void CropTimer()
+    void CropTimer(int _day, int _hour)
     {
-
         switch(seedType)
         {
             case 10001:
+                {
+                    if(_hour <= 20)
+                    {
+                        
+                    }
+                    else
+                    {
+
+                    }
+                }
                 break;
             case 10002:
                 break;
@@ -125,16 +147,19 @@ public class TileManager : MonoBehaviour
         if (tileState == TSTATE.STAGE5) //추수
         {
             isReaped = true;
+            isPlanted = false;
+            isStarted = false;
         }
-        else if(tileState == TSTATE.ACTIVATED) //심기
+        else if(tileState == TSTATE.ACTIVATED && Inventory.instance.isEmpty == false) //심기
         {
             if (Inventory.instance.inventoryItemList[slotNumber].itemType == Item.ItemType.Seed)
             {
                 seedType = Inventory.instance.inventoryItemList[slotNumber].itemID;
-                tileState = TSTATE.STAGE1;
+                ChangeState(TSTATE.STAGE1);
                 Debug.Log("is Clicked. And SeedType is" + seedType);
                 butn.image.sprite = Resources.Load($"ItemIcon/{seedType}_{tileState}", typeof(Sprite)) as Sprite;
                 Inventory.instance.UseAnItem(slotNumber);
+                isPlanted = true;
             }
             else
             {
@@ -142,10 +167,28 @@ public class TileManager : MonoBehaviour
                 noticePanel.gameObject.SetActive(true);
             }
         }
-        else if(tileState == TSTATE.PLANTABLE)
+        else if(tileState == TSTATE.PLANTABLE && Inventory.instance.isEmpty == false) //너무 멀리 있음
         {
             noticePanel.sprite = Resources.Load("Sprites/" + "FarTile_Notice", typeof(Sprite)) as Sprite;
             noticePanel.gameObject.SetActive(true);
         }
+    }
+
+    void ResetTile()
+    {
+        isReset = true;
+        Color temp = butn.image.color;
+        temp.a = 0;
+        butn.image.color = temp;
+    }
+
+    //IEnumerator CheckTimer()
+    //{
+    //    yield return new WaitUntil();
+    //}
+
+    void UpdateVariable()
+    {
+        //if()
     }
 }

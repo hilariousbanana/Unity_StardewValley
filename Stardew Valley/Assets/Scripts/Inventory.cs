@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,11 +15,7 @@ public class Inventory : MonoBehaviour
 
     public int selectedSlot;
 
-    private bool itemActivated;
-    private bool stopKeyInput;
-    private bool preventExec;
-
-    private WaitForSeconds waitTime = new WaitForSeconds(0.0f);
+    public bool isEmpty = true;
 
     private void Awake()
     {
@@ -48,7 +45,14 @@ public class Inventory : MonoBehaviour
 
     private void Update()
     {
-
+        if (inventoryItemList.Count == 0)
+        {
+            isEmpty = true;
+        }
+        else
+        {
+            isEmpty = false;
+        }
     }
 
     public void UpdateItem()

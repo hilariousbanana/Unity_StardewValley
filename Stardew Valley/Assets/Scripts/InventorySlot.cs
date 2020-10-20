@@ -19,12 +19,14 @@ public class InventorySlot : MonoBehaviour
 
     public void Clicked()
     {
-        Database.instance.chosenSlot = slotNumber;
-        usable = true;
-        chosenBox.transform.SetParent(pos.gameObject.transform);
-        chosenBox.transform.position = pos.position;
-
-        Debug.Log("Clicked. at" + slotNumber);
+        if(Inventory.instance.isEmpty == false)
+        {
+            Database.instance.chosenSlot = slotNumber;
+            usable = true;
+            chosenBox.transform.SetParent(pos.gameObject.transform);
+            chosenBox.transform.position = pos.position;
+            //Debug.Log("Clicked. at" + slotNumber);
+        }
     }
 
     private void Update()
@@ -34,7 +36,10 @@ public class InventorySlot : MonoBehaviour
 
     public void AddItem(Item _item)
     {
+        Color temp = icon.color;
+        temp.a = 1.0f;
         icon.sprite = _item.itemIcon;
+        icon.color = temp;
 
         if (_item.itemCount > 0)
         {
@@ -48,6 +53,9 @@ public class InventorySlot : MonoBehaviour
     {
         itemCount_Text.text = string.Empty;
         icon.sprite = null;
+        Color temp = icon.color;
+        temp.a = 0.0f;
+        icon.color = temp;
     }
 
 }
