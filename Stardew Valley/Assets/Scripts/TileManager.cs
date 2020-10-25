@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Data;
+using System.IO.IsolatedStorage;
 using TMPro;
 using UnityEditorInternal;
 using UnityEngine;
@@ -32,12 +33,14 @@ public class TileManager : MonoBehaviour
 
     private int plantedDay = 0;
     private int plantedHour = 0;
+    private int plantedType = 0;
 
     private bool isPlanted = false;
     private bool isStarted = false;
     private bool isReaped = false;
     private bool isReset = false;
     private bool dayAfter = false;
+    private bool dayAfter_2 = false;
 
     // Start is called before the first frame update
     void Start()
@@ -69,14 +72,26 @@ public class TileManager : MonoBehaviour
                 plantedDay = Database.instance.day;
                 plantedHour = Database.instance.hour;
 
+                if (plantedHour <= 20) //하루 지나면 자라있게
+                {
+                    plantedType = 0;
+                    //StartCoroutine(CheckTimer(plantedType));
+                }
+                else //이틀 후에 자라도록
+                {
+                    plantedType = 1;
+                    //StartCoroutine(CheckTimer(plantedType));
+                }
                 CropTimer(plantedDay, plantedHour);
             }
         }
 
-        if (Database.instance.day == 1 && !isReset) //새로운 달로 넘어가면 타일을 모두 리셋해줌.
-        {
-            ResetTile();
-        }
+        //if (Database.instance.day == 1 && !isReset) //새로운 달로 넘어가면 타일을 모두 리셋해줌.
+        //{
+        //    ResetTile();
+        //}
+
+        UpdateVariable();
     }
 
     void ChangeState(TSTATE _state)
@@ -92,10 +107,16 @@ public class TileManager : MonoBehaviour
             case TSTATE.STAGE1:
                 break;
             case TSTATE.STAGE2:
+                ChangeImage();
+                //StartCoroutine(CheckTimer(plantedType));
                 break;
             case TSTATE.STAGE3:
+                ChangeImage();
+                //StartCoroutine(CheckTimer(plantedType));
                 break;
             case TSTATE.STAGE4:
+                ChangeImage();
+                //StartCoroutine(CheckTimer(plantedType));
                 break;
             case TSTATE.STAGE5:
                 {
@@ -119,14 +140,7 @@ public class TileManager : MonoBehaviour
         {
             case 10001:
                 {
-                    if(_hour <= 20)
-                    {
-                        
-                    }
-                    else
-                    {
-
-                    }
+                    
                 }
                 break;
             case 10002:
@@ -149,6 +163,9 @@ public class TileManager : MonoBehaviour
             isReaped = true;
             isPlanted = false;
             isStarted = false;
+
+            Inventory.instance.GetAnItem(seedType);
+            ResetTile();
         }
         else if(tileState == TSTATE.ACTIVATED && Inventory.instance.isEmpty == false) //심기
         {
@@ -177,18 +194,69 @@ public class TileManager : MonoBehaviour
     void ResetTile()
     {
         isReset = true;
+        seedType = 0;
         Color temp = butn.image.color;
         temp.a = 0;
         butn.image.color = temp;
     }
 
-    //IEnumerator CheckTimer()
-    //{
-    //    yield return new WaitUntil();
-    //}
+    IEnumerator CheckTimer(int _plantedType)
+    {
+        switch(_plantedType)
+        {
+            case 0:
+                {
+                    yield return new WaitUntil(() => dayAfter == true);
+                    Debug.Log("wait until now");
+                    ChangeState(tileState++);
+                }
+                break;
+            case 1:
+                {
+                    yield return new WaitUntil(() => dayAfter_2 == true);
+                    ChangeState(tileState++);
+                }
+                break;
+        }
+    }
 
     void UpdateVariable()
     {
-        //if()
+        if(isStarted)
+        {
+            switch (plantedType)
+            {
+                case 0:
+                    {
+                        if (Database.instance.day - plantedDay == 1 || Database.instance.day - plantedDay == -20)
+                        {
+                            Debug.Log("the day after");
+                            dayAfter = true;
+                            ChangeState(TSTATE.STAGE2);
+                            Debug.Log("tile State now is" + tileState);
+                            plantedDay = Database.instance.day;
+                            dayAfter = false;
+                        }
+                    }
+                    break;
+
+                case 1:
+                    {
+                        if (Database.instance.day - plantedDay == 2 || Database.instance.day - plantedDay == -19)
+                        {
+                            dayAfter_2 = true;
+                            ChangeState(TSTATE.STAGE2);
+                            plantedDay = Database.instance.day;
+                            dayAfter_2 = false;
+                        }
+                    }
+                    break;
+            }
+        } 
+    }
+
+    void ChangeImage()
+    {
+        butn.image.sprite = Resources.Load($"ItemIcon/{seedType}_{tileState}", typeof(Sprite)) as Sprite;
     }
 }
