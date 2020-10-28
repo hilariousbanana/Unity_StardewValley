@@ -34,6 +34,7 @@ public class TileManager : MonoBehaviour
     private int plantedDay = 0;
     private int plantedHour = 0;
     private int plantedType = 0;
+    private int tempState = 0;
 
     private bool isPlanted = false;
     private bool isStarted = false;
@@ -72,7 +73,7 @@ public class TileManager : MonoBehaviour
                 plantedDay = Database.instance.day;
                 plantedHour = Database.instance.hour;
 
-                if (plantedHour <= 20) //하루 지나면 자라있게
+                if (plantedHour <= 20 && seedType != 10002) //하루 지나면 자라있게
                 {
                     plantedType = 0;
                     //StartCoroutine(CheckTimer(plantedType));
@@ -85,11 +86,6 @@ public class TileManager : MonoBehaviour
                 CropTimer(plantedDay, plantedHour);
             }
         }
-
-        //if (Database.instance.day == 1 && !isReset) //새로운 달로 넘어가면 타일을 모두 리셋해줌.
-        //{
-        //    ResetTile();
-        //}
 
         UpdateVariable();
     }
@@ -232,21 +228,26 @@ public class TileManager : MonoBehaviour
                         {
                             Debug.Log("the day after");
                             dayAfter = true;
-                            ChangeState(TSTATE.STAGE2);
+                            tempState = (int)tileState;
+                            tempState++;
+                            ChangeState((TSTATE)tempState);
                             Debug.Log("tile State now is" + tileState);
                             plantedDay = Database.instance.day;
+                            tileState = (TSTATE)tempState;
                             dayAfter = false;
                         }
                     }
                     break;
-
                 case 1:
                     {
                         if (Database.instance.day - plantedDay == 2 || Database.instance.day - plantedDay == -19)
                         {
                             dayAfter_2 = true;
-                            ChangeState(TSTATE.STAGE2);
+                            tempState = (int)tileState;
+                            tempState++;
+                            ChangeState((TSTATE)tempState);
                             plantedDay = Database.instance.day;
+                            tileState = (TSTATE)tempState;
                             dayAfter_2 = false;
                         }
                     }
