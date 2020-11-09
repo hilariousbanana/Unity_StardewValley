@@ -261,7 +261,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 776f4fb2d06b8f4498f6efbb541d44fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemCode: 20001
+  itemCode: 30001
   itemPrice: 0
   itemType: 2
   noticePanel: {fileID: 0}
@@ -270,8 +270,10 @@ MonoBehaviour:
   matCode3: 20004
   matCount1: 0
   matCount2: 0
-  totalCount: 0
+  totalCount: 2
   slots: 
+  slotIndex: 0
+  canBuy: 0
 --- !u!1 &4262677012149501130
 GameObject:
   m_ObjectHideFlags: 0
@@ -416,7 +418,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 776f4fb2d06b8f4498f6efbb541d44fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemCode: 20002
+  itemCode: 30002
   itemPrice: 500
   itemType: 2
   noticePanel: {fileID: 0}
@@ -427,6 +429,8 @@ MonoBehaviour:
   matCount2: 0
   totalCount: 0
   slots: 
+  slotIndex: 0
+  canBuy: 0
 --- !u!1 &4542126833784107552
 GameObject:
   m_ObjectHideFlags: 0
@@ -571,7 +575,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 776f4fb2d06b8f4498f6efbb541d44fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemCode: 20005
+  itemCode: 30005
   itemPrice: 0
   itemType: 2
   noticePanel: {fileID: 0}
@@ -582,6 +586,8 @@ MonoBehaviour:
   matCount2: 2
   totalCount: 0
   slots: 
+  slotIndex: 0
+  canBuy: 0
 --- !u!1 &5388825041717118064
 GameObject:
   m_ObjectHideFlags: 0
@@ -857,7 +863,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 776f4fb2d06b8f4498f6efbb541d44fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemCode: 20004
+  itemCode: 30004
   itemPrice: 0
   itemType: 2
   noticePanel: {fileID: 0}
@@ -868,6 +874,8 @@ MonoBehaviour:
   matCount2: 0
   totalCount: 0
   slots: 
+  slotIndex: 0
+  canBuy: 0
 --- !u!1 &7462523714687239425
 GameObject:
   m_ObjectHideFlags: 0
@@ -1062,7 +1070,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 776f4fb2d06b8f4498f6efbb541d44fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemCode: 20003
+  itemCode: 30003
   itemPrice: 0
   itemType: 2
   noticePanel: {fileID: 0}
@@ -1073,3 +1081,5 @@ MonoBehaviour:
   matCount2: 2
   totalCount: 0
   slots: 
+  slotIndex: 0
+  canBuy: 0

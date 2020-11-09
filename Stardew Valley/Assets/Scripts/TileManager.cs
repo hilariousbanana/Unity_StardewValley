@@ -120,11 +120,18 @@ public class TileManager : MonoBehaviour
                 break;
             case TSTATE.STAGE4:
                 ChangeImage();
+                if(seedType == 10005)
+                {
+                    tileState = TSTATE.STAGE5;
+                }
                 //StartCoroutine(CheckTimer(plantedType));
                 break;
             case TSTATE.STAGE5:
                 {
-                    ChangeImage();
+                    if(seedType != 10005)
+                    {
+                        ChangeImage();
+                    }
                     if (isReaped)
                         ChangeState(TSTATE.PLANTABLE);
                 }
