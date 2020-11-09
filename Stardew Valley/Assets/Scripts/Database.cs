@@ -193,7 +193,7 @@ public class Database : MonoBehaviour
         if (temp == 60)
         {
             minute = 0;
-            ChangeHP(-3);
+            ChangeHP(-6);
             if (hour == 24)
             {
                 hour = 7;

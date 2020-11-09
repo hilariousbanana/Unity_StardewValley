@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -14,7 +15,6 @@ public class InventorySlot : MonoBehaviour
     public Transform pos;
     public bool usable = false;
     public int slotNumber;
-    private int clickedTimes = 0;
 
 
     public void Clicked()
@@ -26,6 +26,78 @@ public class InventorySlot : MonoBehaviour
             chosenBox.transform.SetParent(pos.gameObject.transform);
             chosenBox.transform.position = pos.position;
             //Debug.Log("Clicked. at" + slotNumber);
+            if(Database.instance.sellEnabled)
+            {
+                 switch(Inventory.instance.inventoryItemList[slotNumber].itemID)
+                {
+                    case 20001:
+                        SellItem(slotNumber, 200);
+                        break;
+                    case 20002:
+                        SellItem(slotNumber, 250);
+                        break;
+                    case 20003:
+                        SellItem(slotNumber, 150);
+                        break;
+                    case 20004:
+                        SellItem(slotNumber, 150);
+                        break;
+                    case 20005:
+                        SellItem(slotNumber, 80);
+                        break;
+                    case 30001:
+                        SellItem(slotNumber, 350);
+                        break;
+                    case 30002:
+                        SellItem(slotNumber, 480);
+                        break;
+                    case 30003:
+                        SellItem(slotNumber, 720);
+                        break;
+                    case 30004:
+                        SellItem(slotNumber, 180);
+                        break;
+                    case 30005:
+                        SellItem(slotNumber, 770);
+                        break;
+                }
+            }
+            else if(Database.instance.sellEnabled == false)
+            {
+                switch (Inventory.instance.inventoryItemList[slotNumber].itemID)
+                {
+                    case 20001:
+                        ItemEffect(slotNumber, 8);
+                        break;
+                    case 20002:
+                        ItemEffect(slotNumber, 15);
+                        break;
+                    case 20003:
+                        ItemEffect(slotNumber, 5);
+                        break;
+                    case 20004:
+                        ItemEffect(slotNumber, 5);
+                        break;
+                    case 20005:
+                        ItemEffect(slotNumber, 3);
+                        break;
+                    case 30001:
+                        ItemEffect(slotNumber, 25);
+                        break;
+                    case 30002:
+                        ItemEffect(slotNumber, 0.05f);
+                        break;
+                    case 30003:
+                        ItemEffect(slotNumber, 50);
+                        break;
+                    case 30004:
+                        ItemEffect(slotNumber, 15);
+                        break;
+                    case 30005:
+                        ItemEffect(slotNumber, 50);
+                        break;
+                }
+            }
         }
     }
 
@@ -58,4 +130,23 @@ public class InventorySlot : MonoBehaviour
         icon.color = temp;
     }
 
+    void SellItem(int _slotNum, int _gold)
+    {
+        Inventory.instance.UseAnItem(_slotNum);
+        Database.instance.ChangeGold(_gold);
+    }
+
+    void ItemEffect(int _slotNum, float _hp)
+    {
+        if(Inventory.instance.inventoryItemList[slotNumber].itemID == 30002)
+        {
+            //이동속도 증가
+            Inventory.instance.UseAnItem(_slotNum);
+        }
+        else
+        {
+            Inventory.instance.UseAnItem(_slotNum);
+            Database.instance.ChangeHP((int)_hp);
+        }
+    }
 }
