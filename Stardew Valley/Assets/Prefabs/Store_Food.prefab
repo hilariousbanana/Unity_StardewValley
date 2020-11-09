@@ -131,7 +131,7 @@ GameObject:
   - component: {fileID: 5941827794718913141}
   - component: {fileID: 6805438323695292996}
   m_Layer: 5
-  m_Name: 20001
+  m_Name: 30001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -265,6 +265,13 @@ MonoBehaviour:
   itemPrice: 0
   itemType: 2
   noticePanel: {fileID: 0}
+  matCode1: 20001
+  matCode2: 20003
+  matCode3: 20004
+  matCount1: 0
+  matCount2: 0
+  totalCount: 0
+  slots: 
 --- !u!1 &4262677012149501130
 GameObject:
   m_ObjectHideFlags: 0
@@ -279,7 +286,7 @@ GameObject:
   - component: {fileID: 4208089649239590296}
   - component: {fileID: 4854500003671570826}
   m_Layer: 5
-  m_Name: 20002
+  m_Name: 30002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -413,6 +420,13 @@ MonoBehaviour:
   itemPrice: 500
   itemType: 2
   noticePanel: {fileID: 0}
+  matCode1: 0
+  matCode2: 0
+  matCode3: 0
+  matCount1: 0
+  matCount2: 0
+  totalCount: 0
+  slots: 
 --- !u!1 &4542126833784107552
 GameObject:
   m_ObjectHideFlags: 0
@@ -427,7 +441,7 @@ GameObject:
   - component: {fileID: 4629875322086205849}
   - component: {fileID: 4647510095059768099}
   m_Layer: 5
-  m_Name: 20005
+  m_Name: 30005
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -561,6 +575,13 @@ MonoBehaviour:
   itemPrice: 0
   itemType: 2
   noticePanel: {fileID: 0}
+  matCode1: 30001
+  matCode2: 30004
+  matCode3: 0
+  matCount1: 1
+  matCount2: 2
+  totalCount: 0
+  slots: 
 --- !u!1 &5388825041717118064
 GameObject:
   m_ObjectHideFlags: 0
@@ -706,7 +727,7 @@ GameObject:
   - component: {fileID: 4853578357176648155}
   - component: {fileID: 8459659614508134105}
   m_Layer: 5
-  m_Name: 20004
+  m_Name: 30004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -840,6 +861,13 @@ MonoBehaviour:
   itemPrice: 0
   itemType: 2
   noticePanel: {fileID: 0}
+  matCode1: 20005
+  matCode2: 0
+  matCode3: 0
+  matCount1: 2
+  matCount2: 0
+  totalCount: 0
+  slots: 
 --- !u!1 &7462523714687239425
 GameObject:
   m_ObjectHideFlags: 0
@@ -904,7 +932,7 @@ GameObject:
   - component: {fileID: 846002786698559067}
   - component: {fileID: 317971064417458607}
   m_Layer: 5
-  m_Name: 20003
+  m_Name: 30003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1038,3 +1066,10 @@ MonoBehaviour:
   itemPrice: 0
   itemType: 2
   noticePanel: {fileID: 0}
+  matCode1: 20002
+  matCode2: 20005
+  matCode3: 0
+  matCount1: 2
+  matCount2: 2
+  totalCount: 0
+  slots: 

@@ -34,6 +34,7 @@ public class NoticeManager : MonoBehaviour
         else
             Time.timeScale = 1;
         panel.sprite = null;
+        Database.instance.noticeActivated = false;
         panel.gameObject.SetActive(false);
     }
 
@@ -57,6 +58,7 @@ public class NoticeManager : MonoBehaviour
         else
             Time.timeScale = 1;
         panel.sprite = null;
+        Database.instance.noticeActivated = false;
         panel.gameObject.SetActive(false);
     }
 }

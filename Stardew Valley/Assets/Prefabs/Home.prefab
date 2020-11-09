@@ -82,7 +82,7 @@ Transform:
   m_GameObject: {fileID: 6683255930942210395}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 16.7, y: 19.5, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 10, y: 10, z: 10}
   m_Children:
   - {fileID: 6683255932359628273}
   - {fileID: 6683255931519472211}
@@ -227,6 +227,7 @@ MonoBehaviour:
   panel: {fileID: 0}
   targetPos: {fileID: 0}
   camPos: {fileID: 0}
+  mapNumber: 0
 --- !u!1 &6683255931908861371
 GameObject:
   m_ObjectHideFlags: 0

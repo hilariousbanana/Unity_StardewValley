@@ -18,14 +18,4 @@ public class TileBoxMaanger : MonoBehaviour
             tiles[i].tileNumber = i;
         }
     }
-    // Update is called once per frame
-    void Update()
-    {
-        if (Database.instance.inFarm == true)
-        {
-            contents.SetActive(true);
-        }
-        else
-            contents.SetActive(false);
-    }
 }

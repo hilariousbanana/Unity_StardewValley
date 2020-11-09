@@ -6,7 +6,7 @@ using UnityEngine.XR;
 
 public class MovingObject : MonoBehaviour
 {
-    public float speed = 0.03f;
+    public float speed = 0.1f;
     public float runSpeed;
     private float applyRunSpeed;
 
@@ -80,13 +80,13 @@ public class MovingObject : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        StartCoroutine(WalkControlCoroutine());
+        //StartCoroutine(WalkControlCoroutine());
     }
 
     IEnumerator WalkControlCoroutine()
     {
         speed = 0;
         yield return new WaitForSeconds(1.0f);
-        speed = 0.008f;
+        speed = 0.1f;
     }
 }

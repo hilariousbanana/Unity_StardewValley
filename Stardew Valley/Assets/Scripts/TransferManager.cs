@@ -21,9 +21,19 @@ public class TransferManager : MonoBehaviour
         boxCollider = GetComponent<BoxCollider2D>();
     }
 
-    private void OnTriggerEnter2D(Collider2D collider)
+    //private void OnTriggerEnter2D(Collider2D collider)
+    //{
+    //    if(collider.gameObject.tag == "Player")
+    //    {
+    //        panel.SetActive(true);
+    //        StartCoroutine(MoveCoroutine());
+    //        Database.instance.curMapNum = mapNumber;
+    //    }
+    //}
+
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collider.gameObject.tag == "Player")
+        if(collision.gameObject.tag == "Player")
         {
             panel.SetActive(true);
             StartCoroutine(MoveCoroutine());

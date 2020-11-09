@@ -15,6 +15,10 @@ public class Database : MonoBehaviour
     public int chosenSlot = 0;
     public int chosenTile = 0;
     public bool inFarm = false;
+    public bool isActivated = false;
+    public bool tileActivated = false;
+    public bool noticeActivated = false;
+    public bool storeActivated = false;
 
     //시간 관련 var
     public enum SEASON
@@ -22,12 +26,15 @@ public class Database : MonoBehaviour
         SPRING, SUMMER, FALL, WINTER
     }
 
+    public GameObject clockHand;
+    public float tempRot;
     public int minute;
     public int hour;
     public int day;
     public int sleepHour;
     public bool isSleeping;
     public bool reset;
+    public bool sleepException;
     public SEASON season = SEASON.SPRING;
 
     public string minute_Text;
@@ -35,6 +42,7 @@ public class Database : MonoBehaviour
     public string day_Text;
     public string season_Text;
 
+    public bool isNextDay;
 
     //플레이어 관련 var
     public const int MaxHp = 100;
@@ -116,6 +124,7 @@ public class Database : MonoBehaviour
 
         isSleeping = false;
         reset = false;
+        isNextDay = false;
 
         curMapNum = 0;
     }
@@ -213,7 +222,7 @@ public class Database : MonoBehaviour
     {
         hour = 7;
         minute = 0;
-
+        isNextDay = true;
         if (day == 28)
         {
             if (season == SEASON.WINTER)
@@ -231,6 +240,10 @@ public class Database : MonoBehaviour
             day++;
 
         LinkDataToText();
+        sleepException = true;
+        clockHand.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 170.0f));
+        tempRot = 170.0f;
+        isNextDay = false;
     }
 
     public void ResetDay()
