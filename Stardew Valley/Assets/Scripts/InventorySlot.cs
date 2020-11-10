@@ -10,6 +10,7 @@ public class InventorySlot : MonoBehaviour
 {
     public Image icon;
     public GameObject chosenBox;
+    public Image noticePanel;
     public Text itemCount_Text;
     public Text slotNumber_Text;
     public Transform pos;
@@ -138,10 +139,18 @@ public class InventorySlot : MonoBehaviour
 
     void ItemEffect(int _slotNum, float _hp)
     {
-        if(Inventory.instance.inventoryItemList[slotNumber].itemID == 30002)
+        if(Inventory.instance.inventoryItemList[slotNumber].itemID == 30002 && !Database.instance.coffeeDrink)
         {
-            //이동속도 증가
-            Inventory.instance.UseAnItem(_slotNum);
+            if(!Database.instance.coffeeDrink)
+            {
+                Inventory.instance.UseAnItem(_slotNum);
+                Database.instance.ChangeSpeed(Database.instance.runSpeed);
+                Database.instance.coffeeDrink = true;
+            }
+            else
+            {
+                noticePanel.sprite = Resources.Load("Sprites/" + "CoffeeUsage_Notice", typeof(Sprite)) as Sprite;
+            }
         }
         else
         {

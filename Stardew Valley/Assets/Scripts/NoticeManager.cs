@@ -16,6 +16,7 @@ public class NoticeManager : MonoBehaviour
 
     public void BtnOk()
     {
+        AudioManager.instance.Play("Click");
         if (panel.sprite.name == "Sleep_Notice" || panel.sprite.name == "DayEnded_Notice") //잠들경우
         {
             Time.timeScale = 0;
@@ -40,6 +41,7 @@ public class NoticeManager : MonoBehaviour
 
     public void BtnNo()
     {
+        AudioManager.instance.Play("Click");
         if (panel.sprite.name == "GameOver_Notice")
         {
             Time.timeScale = 0;

@@ -10,6 +10,7 @@ public class StoreManager : MonoBehaviour
     {
         if(Database.instance.storeActivated == false)
         {
+            AudioManager.instance.Play("Click");
             Database.instance.storeActivated = true;
             storeWindow.SetActive(true);
             Database.instance.sellEnabled = true;
@@ -18,6 +19,7 @@ public class StoreManager : MonoBehaviour
 
     public void BtnOK()
     {
+        AudioManager.instance.Play("Click");
         Database.instance.sellEnabled = false;
         Database.instance.storeActivated = false;
         storeWindow.SetActive(false);

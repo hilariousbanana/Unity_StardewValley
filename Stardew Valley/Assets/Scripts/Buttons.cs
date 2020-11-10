@@ -42,6 +42,7 @@ public class Buttons : MonoBehaviour
 
     public void BtnPurchase()
     {
+        AudioManager.instance.Play("Click");
         if (itemType == Item.ItemType.Seed) //씨앗상점
         {
             if (Database.instance.gold >= itemPrice)

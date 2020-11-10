@@ -37,6 +37,7 @@ public class GameManager : MonoBehaviour
     {
         loginTime = System.DateTime.Now;
         state = GAMESTATE.DAY;
+        BGMManager.instance.Play(1);
     }
 
     // Update is called once per frame

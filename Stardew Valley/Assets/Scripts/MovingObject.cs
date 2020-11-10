@@ -1,14 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.U2D.Sprites;
 using UnityEngine;
 using UnityEngine.XR;
 
 public class MovingObject : MonoBehaviour
 {
-    public float speed = 0.1f;
-    public float runSpeed;
-    private float applyRunSpeed;
+    float speed;
+    float runSpeed;
+    float applyRunSpeed;
 
     private Vector3 vector;
 
@@ -21,10 +20,13 @@ public class MovingObject : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         boxCollider = GetComponent<BoxCollider2D>();
+        speed = Database.instance.playerSpeed;
+        runSpeed = Database.instance.runSpeed;
     }
 
     void Update()
     {
+        UpdateSpeed();
         if (Input.GetKey(KeyCode.LeftShift))
         {
             applyRunSpeed = runSpeed;
@@ -78,15 +80,11 @@ public class MovingObject : MonoBehaviour
         }   
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    void UpdateSpeed()
     {
-        //StartCoroutine(WalkControlCoroutine());
-    }
-
-    IEnumerator WalkControlCoroutine()
-    {
-        speed = 0;
-        yield return new WaitForSeconds(1.0f);
-        speed = 0.1f;
+        if(Database.instance.coffeeDrink)
+        {
+            speed = Database.instance.playerSpeed;
+        }
     }
 }

@@ -1,10 +1,6 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Data;
-using System.IO.IsolatedStorage;
-using TMPro;
-using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -22,11 +18,15 @@ public class TileManager : MonoBehaviour
     }
     public TSTATE tileState;
 
-    private GameObject player;
     public Image noticePanel;
     public SpriteRenderer spriteRenderer;
+
+    private GameObject player;
+    public GameObject canvasPanel;
     public GameObject plantPanel;
-    public GameObject panel;
+    public GameObject activatedTile;
+    public GameObject reapPanel;
+
     Transform targetPos;
 
     private float distance;
@@ -66,7 +66,7 @@ public class TileManager : MonoBehaviour
 
         if (!isPlanted) //심은게 없는 경우
         {
-            if (GetDistance() <=1100.0f) //수치 수정해야함.
+            if (GetDistance() <=34.0f) //수치 수정해야함.
             {
                 ChangeState(TSTATE.ACTIVATED);
             }
@@ -96,6 +96,7 @@ public class TileManager : MonoBehaviour
             }
         }
         UpdateVariable();
+        GetDistance();
     }
 
     void ChangeState(TSTATE _state)
@@ -105,10 +106,13 @@ public class TileManager : MonoBehaviour
         switch(_state)
         {
             case TSTATE.PLANTABLE:
+                activatedTile.SetActive(false);
                 break;
             case TSTATE.ACTIVATED:
+                activatedTile.SetActive(true);
                 break;
             case TSTATE.STAGE1:
+                activatedTile.SetActive(false);
                 break;
             case TSTATE.STAGE2:
                 ChangeImage();
@@ -141,7 +145,7 @@ public class TileManager : MonoBehaviour
 
     float GetDistance()
     {
-        distance = Vector2.Distance(new Vector2(this.transform.localPosition.x, this.transform.localPosition.y),
+        distance = Vector2.Distance(new Vector2(this.transform.position.x, this.transform.position.y),
         new Vector2(player.transform.position.x, player.transform.position.y));
         //Vector2 temp = this.transform.position - player.transform.position;
         //distance = temp.sqrMagnitude;
@@ -173,20 +177,20 @@ public class TileManager : MonoBehaviour
         Debug.Log(GetDistance());
         if(Database.instance.tileActivated == false && !isStarted && Database.instance.noticeActivated == false)
         {
-            plantPanel.SetActive(true);
+            canvasPanel.SetActive(true);
             Vector3 screenPos = Camera.main.WorldToScreenPoint(targetPos.position);
-            panel.transform.position = new Vector3(screenPos.x + 40, screenPos.y -40, 0);
+            plantPanel.transform.position = new Vector3(screenPos.x + 40, screenPos.y -40, 0);
             Database.instance.tileActivated = true;
-            panel.SetActive(true);
+            plantPanel.SetActive(true);
         }
-        if (tileState == TSTATE.STAGE5) //추수
+        if (tileState == TSTATE.STAGE5 && Database.instance.noticeActivated == false) //추수
         {
-            isReaped = true;
-            isPlanted = false;
-            isStarted = false;
+            canvasPanel.SetActive(true);
+            Vector3 screenPos = Camera.main.WorldToScreenPoint(targetPos.position);
+            reapPanel.transform.position = new Vector3(screenPos.x + 40, screenPos.y - 40, 0);
+            Database.instance.tileActivated = true;
+            reapPanel.SetActive(true);
 
-            Inventory.instance.GetAnItem(seedType + 10000);
-            ResetTile();
         }
     }
 
@@ -274,8 +278,9 @@ public class TileManager : MonoBehaviour
     {
         Debug.Log("Pressed CancelButton. Tile Number is" + tileNumber);
         Database.instance.tileActivated = false;
-        panel.SetActive(false);
         plantPanel.SetActive(false);
+        reapPanel.SetActive(false);
+        canvasPanel.SetActive(false);
     }
 
     public void PlantButton()
@@ -285,6 +290,7 @@ public class TileManager : MonoBehaviour
         {
             if (Inventory.instance.inventoryItemList[slotNumber].itemType == Item.ItemType.Seed)
             {
+                Database.instance.ChangeHP(-3);
                 seedType = Inventory.instance.inventoryItemList[slotNumber].itemID;
                 ChangeState(TSTATE.STAGE1);
                 Debug.Log("is Clicked. And SeedType is" + seedType);
@@ -306,7 +312,19 @@ public class TileManager : MonoBehaviour
             Database.instance.noticeActivated = true;
         }
         Database.instance.tileActivated = false;
-        panel.SetActive(false);
         plantPanel.SetActive(false);
+        canvasPanel.SetActive(false);
+    }
+
+    public void ReapButton()
+    {
+        AudioManager.instance.Play("Reap");
+        isReaped = true;
+        isPlanted = false;
+        isStarted = false;
+        reapPanel.SetActive(false);
+        Database.instance.ChangeHP(-3);
+        Inventory.instance.GetAnItem(seedType + 10000);
+        ResetTile();
     }
 }

@@ -584,7 +584,7 @@ MonoBehaviour:
   matCode3: 0
   matCount1: 1
   matCount2: 2
-  totalCount: 0
+  totalCount: 3
   slots: 
   slotIndex: 0
   canBuy: 0
@@ -872,7 +872,7 @@ MonoBehaviour:
   matCode3: 0
   matCount1: 2
   matCount2: 0
-  totalCount: 0
+  totalCount: 2
   slots: 
   slotIndex: 0
   canBuy: 0
@@ -1079,7 +1079,7 @@ MonoBehaviour:
   matCode3: 0
   matCount1: 2
   matCount2: 2
-  totalCount: 0
+  totalCount: 4
   slots: 
   slotIndex: 0
   canBuy: 0

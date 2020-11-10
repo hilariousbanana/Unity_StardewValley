@@ -2,11 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
-using UnityEditorInternal;
 
 public class Database : MonoBehaviour
 {
     public static Database instance;
+
+
+    //플레이어 관련 var
+    public float playerSpeed;
+    public float runSpeed;
+    public bool coffeeDrink;
 
     //아이템 관련 var
     public List<Item> itemList = new List<Item>();
@@ -127,6 +132,11 @@ public class Database : MonoBehaviour
         isNextDay = false;
 
         curMapNum = 0;
+
+        //playerSpeed = 0.08f;
+        //runSpeed = 0.05f;
+        playerSpeed = 1f;
+        runSpeed = 0.5f;
     }
 
     //아이템 관련 func
@@ -193,7 +203,7 @@ public class Database : MonoBehaviour
         if (temp == 60)
         {
             minute = 0;
-            ChangeHP(-6);
+            ChangeHP(-5);
             if (hour == 24)
             {
                 hour = 7;
@@ -244,6 +254,8 @@ public class Database : MonoBehaviour
         clockHand.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 170.0f));
         tempRot = 170.0f;
         isNextDay = false;
+        playerSpeed = 0.08f;
+        coffeeDrink = false;
     }
 
     public void ResetDay()
@@ -255,5 +267,10 @@ public class Database : MonoBehaviour
         //이후 당일 시작 전까지 저장된 데이터 로드.(인벤토리 상황 등)
 
         LinkDataToText();
+    }
+
+    public void ChangeSpeed(float _value)
+    {
+        playerSpeed += _value;
     }
 }
