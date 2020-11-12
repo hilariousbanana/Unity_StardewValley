@@ -46,8 +46,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clips:
   - {fileID: 8300000, guid: 148b7df43e9857543bfe1d9f1df9b6f4, type: 3}
-  - {fileID: 8300000, guid: 8aa90defd867c444cbdbc9c0dc4634b1, type: 3}
   - {fileID: 8300000, guid: eb9f5c9f4b1e7af49824013db72fc75a, type: 3}
+  - {fileID: 8300000, guid: 03b63720eea3b594cb4a7bd6b1271d1c, type: 3}
+  - {fileID: 8300000, guid: 8aa90defd867c444cbdbc9c0dc4634b1, type: 3}
+  - {fileID: 8300000, guid: 598286bf2b236794fb8fa7ebc08e18af, type: 3}
 --- !u!82 &9165403874312075225
 AudioSource:
   m_ObjectHideFlags: 0

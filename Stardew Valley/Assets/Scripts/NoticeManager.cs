@@ -22,6 +22,7 @@ public class NoticeManager : MonoBehaviour
             Time.timeScale = 0;
             fadePanel.SetActive(true);
             Time.timeScale = 1;
+            BGMManager.instance.FadeOut();
             Database.instance.sleepHour = Database.instance.hour;
             Database.instance.isSleeping = true;
         }

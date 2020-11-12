@@ -1150,6 +1150,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   optionPanel: {fileID: 8731075341921154497}
+  bgmSlider: {fileID: 9173698207069161288}
+  sfxSlider: {fileID: 6625822293722140601}
 --- !u!1 &8116209058940470575
 GameObject:
   m_ObjectHideFlags: 0

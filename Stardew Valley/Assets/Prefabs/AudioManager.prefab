@@ -46,11 +46,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sounds:
   - name: Click
-    clip: {fileID: 8300000, guid: 6b20388df2510f248bdeb5f124f031fb, type: 3}
+    clip: {fileID: 8300000, guid: fe8900747bb66bd4898738ca892c1307, type: 3}
     volume: 1
     loop: 0
   - name: Reap
     clip: {fileID: 8300000, guid: 7a915aa629d950d41b7740ad880928df, type: 3}
+    volume: 1
+    loop: 0
+  - name: OpenWindow
+    clip: {fileID: 8300000, guid: 32b82ab6b3e1b0a4f8b2d0df9ffa7fd8, type: 3}
     volume: 1
     loop: 0
 --- !u!82 &116779518691208895

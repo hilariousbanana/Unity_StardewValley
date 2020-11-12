@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System;
+//using System;
 
 public class Database : MonoBehaviour
 {
@@ -256,6 +256,9 @@ public class Database : MonoBehaviour
         isNextDay = false;
         playerSpeed = 0.08f;
         coffeeDrink = false;
+        int rand = Random.Range(1,  4);
+        BGMManager.instance.Play(rand);
+        BGMManager.instance.FadeIn();
     }
 
     public void ResetDay()
