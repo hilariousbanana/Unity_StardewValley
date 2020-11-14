@@ -37,7 +37,7 @@ public class Buttons : MonoBehaviour
     void PurchaseItem(int _itemID, int _itemPrice)
     {
         Inventory.instance.GetAnItem(_itemID);
-        Database.instance.ChangeGold(-_itemPrice);
+        DataController.instance.data.ChangeGold(-_itemPrice);
     }
 
     public void BtnPurchase()
@@ -45,7 +45,7 @@ public class Buttons : MonoBehaviour
         AudioManager.instance.Play("Click");
         if (itemType == Item.ItemType.Seed) //씨앗상점
         {
-            if (Database.instance.gold >= itemPrice)
+            if (DataController.instance.data.gold >= itemPrice)
             {
                 PurchaseItem(itemCode, itemPrice);
             }
@@ -57,7 +57,7 @@ public class Buttons : MonoBehaviour
         }
         else if (itemType == Item.ItemType.Food)//음식상점
         {
-            if (Database.instance.gold >= itemPrice)
+            if (DataController.instance.data.gold >= itemPrice)
             {
                 CheckConditions();
             }

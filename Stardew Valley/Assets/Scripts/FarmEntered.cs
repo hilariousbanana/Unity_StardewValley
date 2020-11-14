@@ -9,7 +9,7 @@ public class FarmEntered : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            Database.instance.inFarm = control;
+            DataController.instance.data.inFarm = control;
         }
     }
 }

@@ -20,12 +20,13 @@ public class MovingObject : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         boxCollider = GetComponent<BoxCollider2D>();
-        speed = Database.instance.playerSpeed;
-        runSpeed = Database.instance.runSpeed;
+        speed = DataController.instance.data.playerSpeed;
+        runSpeed = DataController.instance.data.runSpeed;
     }
 
     void Update()
     {
+        DataController.instance.data.playerPos = this.transform.position;
         UpdateSpeed();
         if (Input.GetKey(KeyCode.LeftShift))
         {
@@ -82,9 +83,9 @@ public class MovingObject : MonoBehaviour
 
     void UpdateSpeed()
     {
-        if(Database.instance.coffeeDrink)
+        if(DataController.instance.data.coffeeDrink)
         {
-            speed = Database.instance.playerSpeed;
+            speed = DataController.instance.data.playerSpeed;
         }
     }
 }

@@ -18,9 +18,9 @@ public class ClockManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        date_Text.text = Database.instance.season_Text + " " + Database.instance.day_Text;
-        time_Text.text = Database.instance.hour_Text + " " + Database.instance.minute_Text;
-        gold_Text.text = Database.instance.gold_Text;
+        date_Text.text = DataController.instance.data.season_Text + " " + DataController.instance.data.day_Text;
+        time_Text.text = DataController.instance.data.hour_Text + " " + DataController.instance.data.minute_Text;
+        gold_Text.text = DataController.instance.data.gold_Text;
     }
 
     IEnumerator BlinkText()

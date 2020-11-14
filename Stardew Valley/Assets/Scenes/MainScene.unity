@@ -16083,6 +16083,10 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3386702502740062701, guid: f94ef675da13a974d9bbb5b8440929b0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3386702502740062702, guid: f94ef675da13a974d9bbb5b8440929b0, type: 3}
       propertyPath: clockHand
       value: 

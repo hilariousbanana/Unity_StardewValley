@@ -1,17 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.IO;
 //using System;
 
-public class Database : MonoBehaviour
+[System.Serializable]
+public class Database
 {
-    public static Database instance;
+    //public static Database instance;
 
 
     //플레이어 관련 var
     public float playerSpeed;
     public float runSpeed;
     public bool coffeeDrink;
+    public Vector3 playerPos;
 
     //아이템 관련 var
     public List<Item> itemList = new List<Item>();
@@ -61,32 +64,30 @@ public class Database : MonoBehaviour
 
     private void Awake()
     {
-        if(instance == null)
-        {
-            instance = this;
-        }
-        else if(instance != this)
-        {
-            Destroy(gameObject);
-        }
+        //if(instance == null)
+        //{
+        //    instance = this;
+        //}
+        //else if(instance != this)
+        //{
+        //    Destroy(gameObject);
+        //}
     }
 
     private void Start()
     {
-        AddItemList();
-        InitializeVariables();
-        LinkDataToText();
+        
     }
 
-    private void Update()
-    {
-        if (curMapNum == 1)
-        {
-            inFarm = true;
-        }
-        else
-            inFarm = false;
-    }
+    //private void Update()
+    //{
+    //    if (curMapNum == 1)
+    //    {
+    //        inFarm = true;
+    //    }
+    //    else
+    //        inFarm = false;
+    //}
 
 
     //데이터 - UI텍스트 연동

@@ -15,6 +15,6 @@ public class BoxController : MonoBehaviour
     void Update()
     {
         this.transform.localPosition = new Vector3(0, 0, 0);
-        this.transform.position = posArray[Database.instance.chosenSlot].position;
+        this.transform.position = posArray[DataController.instance.data.chosenSlot].position;
     }
 }

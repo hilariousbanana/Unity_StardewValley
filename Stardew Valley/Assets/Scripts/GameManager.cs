@@ -47,25 +47,29 @@ public class GameManager : MonoBehaviour
         TimeSpan timeChecker = System.DateTime.Now - loginTime;
         if (timeChecker.TotalSeconds >= 6)
         {
-            Database.instance.ChangeMinute(10);
+            DataController.instance.data.ChangeMinute(10);
+            //Database.instance.ChangeMinute(10);
             loginTime = System.DateTime.Now;
-            Database.instance.LinkDataToText();
+            DataController.instance.data.LinkDataToText();
+            //Database.instance.LinkDataToText();
         }
 
         //Sleep and Date adjust
-        if(Database.instance.isSleeping == true)
+        if(DataController.instance.data.isSleeping == true)
         {
-            Database.instance.isSleeping = false;
-            int tempTime = Database.instance.sleepHour;
+            //Database.instance.isSleeping = false;
+            DataController.instance.data.isSleeping = false;
+            //int tempTime = Database.instance.sleepHour;
+            int tempTime = DataController.instance.data.sleepHour;
             SleepTimeCheck(tempTime);
         }
-        else if(Database.instance.hour == 24)
+        else if (DataController.instance.data.hour == 24)
         {
             ChangeState(GAMESTATE.OVERNIGHT);
         }
 
         //CheckGameOver
-        if(Database.instance.curHp <= 0)
+        if (DataController.instance.data.curHp <= 0)
         {
              ChangeState(GAMESTATE.GAMEOVER);
         }
@@ -78,21 +82,23 @@ public class GameManager : MonoBehaviour
         {
             case GAMESTATE.NIGHT:
                 {
-                    Database.instance.curHp = Database.MaxHp;
-                    Database.instance.RenewalDay();
+                    //Database.instance.curHp = Database.MaxHp;
+                    //Database.instance.RenewalDay();
+                    DataController.instance.data.curHp = Database.MaxHp;
+                    DataController.instance.data.RenewalDay();
                     ChangeState(GAMESTATE.DAY);
                 }
                 break;
 
             case GAMESTATE.LATENIGHT:
                 {
-                    if (Database.instance.curHp < 20)
+                    if (DataController.instance.data.curHp < 20)
                     {
-                        Database.instance.curHp = 70;
+                        DataController.instance.data.curHp = 70;
                     }
-                    else if(Database.instance.curHp < 50)
+                    else if(DataController.instance.data.curHp < 50)
                     {
-                        Database.instance.curHp = 60;
+                        DataController.instance.data.curHp = 60;
                     }
                     ChangeState(GAMESTATE.DAY);
                 }
@@ -102,7 +108,7 @@ public class GameManager : MonoBehaviour
                 {
                     noticePanel.sprite = Resources.Load("Sprites/" + "DayEnded_Notice", typeof(Sprite)) as Sprite;
                     noticePanel.gameObject.SetActive(true);
-                    Database.instance.RenewalDay();
+                    DataController.instance.data.RenewalDay();
                     ChangeState(GAMESTATE.DAY);
                 }
                 break;
@@ -111,7 +117,7 @@ public class GameManager : MonoBehaviour
                 {
                     noticePanel.sprite = Resources.Load("Sprites/" + "GameOver_Notice", typeof(Sprite)) as Sprite;
                     noticePanel.gameObject.SetActive(true);
-                    Database.instance.ResetDay();
+                    DataController.instance.data.ResetDay();
                     ChangeState(GAMESTATE.DAY);
                 }
                 break;

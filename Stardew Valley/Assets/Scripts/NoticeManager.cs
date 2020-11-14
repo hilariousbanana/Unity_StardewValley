@@ -23,20 +23,20 @@ public class NoticeManager : MonoBehaviour
             fadePanel.SetActive(true);
             Time.timeScale = 1;
             BGMManager.instance.FadeOut();
-            Database.instance.sleepHour = Database.instance.hour;
-            Database.instance.isSleeping = true;
+            DataController.instance.data.sleepHour = DataController.instance.data.hour;
+            DataController.instance.data.isSleeping = true;
         }
         else if (panel.sprite.name == "GameOver_Notice")
         {
             Time.timeScale = 0;
             fadePanel.SetActive(true);
             Time.timeScale = 1;
-            Database.instance.reset = true;
+            DataController.instance.data.reset = true;
         }
         else
             Time.timeScale = 1;
         panel.sprite = null;
-        Database.instance.noticeActivated = false;
+        DataController.instance.data.noticeActivated = false;
         panel.gameObject.SetActive(false);
     }
 
@@ -48,20 +48,20 @@ public class NoticeManager : MonoBehaviour
             Time.timeScale = 0;
             fadePanel.SetActive(true);
             Time.timeScale = 1;
-            Database.instance.reset = true;
+            DataController.instance.data.reset = true;
         }
         else if (panel.sprite.name == "DayEnded_Notice")
         {
             Time.timeScale = 0;
             fadePanel.SetActive(true);
             Time.timeScale = 1;
-            Database.instance.sleepHour = Database.instance.hour;
-            Database.instance.isSleeping = true;
+            DataController.instance.data.sleepHour = DataController.instance.data.hour;
+            DataController.instance.data.isSleeping = true;
         }
         else
             Time.timeScale = 1;
         panel.sprite = null;
-        Database.instance.noticeActivated = false;
+        DataController.instance.data.noticeActivated = false;
         panel.gameObject.SetActive(false);
     }
 }

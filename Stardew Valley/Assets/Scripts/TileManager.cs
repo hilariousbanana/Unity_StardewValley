@@ -56,12 +56,12 @@ public class TileManager : MonoBehaviour
 
     void Update()
     {
-        slotNumber = Database.instance.chosenSlot;
+        slotNumber = DataController.instance.data.chosenSlot;
 
-        if (Database.instance.sleepException == true)
+        if (DataController.instance.data.sleepException == true)
         {
             UpdateVariable();
-            Database.instance.sleepException = false;
+            DataController.instance.data.sleepException = false;
         }
 
         if (!isPlanted) //심은게 없는 경우
@@ -80,8 +80,8 @@ public class TileManager : MonoBehaviour
             if(!isStarted)
             {
                 isStarted = true;
-                plantedDay = Database.instance.day;
-                plantedHour = Database.instance.hour;
+                plantedDay = DataController.instance.data.day;
+                plantedHour = DataController.instance.data.hour;
 
                 if (plantedHour <= 20 &&
                     seedType != 10002) //하루 지나면 자라있게
@@ -175,20 +175,20 @@ public class TileManager : MonoBehaviour
     public void OnMouseDown()
     {
         Debug.Log(GetDistance());
-        if(Database.instance.tileActivated == false && !isStarted && Database.instance.noticeActivated == false)
+        if(DataController.instance.data.tileActivated == false && !isStarted && DataController.instance.data.noticeActivated == false)
         {
             canvasPanel.SetActive(true);
             Vector3 screenPos = Camera.main.WorldToScreenPoint(targetPos.position);
             plantPanel.transform.position = new Vector3(screenPos.x + 40, screenPos.y -40, 0);
-            Database.instance.tileActivated = true;
+            DataController.instance.data.tileActivated = true;
             plantPanel.SetActive(true);
         }
-        if (tileState == TSTATE.STAGE5 && Database.instance.noticeActivated == false) //추수
+        if (tileState == TSTATE.STAGE5 && DataController.instance.data.noticeActivated == false) //추수
         {
             canvasPanel.SetActive(true);
             Vector3 screenPos = Camera.main.WorldToScreenPoint(targetPos.position);
             reapPanel.transform.position = new Vector3(screenPos.x + 40, screenPos.y - 40, 0);
-            Database.instance.tileActivated = true;
+            DataController.instance.data.tileActivated = true;
             reapPanel.SetActive(true);
 
         }
@@ -231,7 +231,7 @@ public class TileManager : MonoBehaviour
             {
                 case 0:
                     {
-                        if (Database.instance.day - plantedDay == 1 || Database.instance.day - plantedDay == -20)
+                        if (DataController.instance.data.day - plantedDay == 1 || DataController.instance.data.day - plantedDay == -20)
                         {
                             if(tileState != TSTATE.STAGE5)
                             {
@@ -241,7 +241,7 @@ public class TileManager : MonoBehaviour
                                 tempState++;
                                 ChangeState((TSTATE)tempState);
                                 Debug.Log("tile State now is" + tileState);
-                                plantedDay = Database.instance.day;
+                                plantedDay = DataController.instance.data.day;
                                 tileState = (TSTATE)tempState;
                                 dayAfter = false;
                             }
@@ -250,7 +250,7 @@ public class TileManager : MonoBehaviour
                     break;
                 case 1:
                     {
-                        if (Database.instance.day - plantedDay == 2 || Database.instance.day - plantedDay == -19)
+                        if (DataController.instance.data.day - plantedDay == 2 || DataController.instance.data.day - plantedDay == -19)
                         {
                             if(tileState != TSTATE.STAGE5)
                             {
@@ -258,7 +258,7 @@ public class TileManager : MonoBehaviour
                                 tempState = (int)tileState;
                                 tempState++;
                                 ChangeState((TSTATE)tempState);
-                                plantedDay = Database.instance.day;
+                                plantedDay = DataController.instance.data.day;
                                 tileState = (TSTATE)tempState;
                                 dayAfter_2 = false;
                             }
@@ -277,7 +277,7 @@ public class TileManager : MonoBehaviour
     public void CancelButton()
     {
         Debug.Log("Pressed CancelButton. Tile Number is" + tileNumber);
-        Database.instance.tileActivated = false;
+        DataController.instance.data.tileActivated = false;
         plantPanel.SetActive(false);
         reapPanel.SetActive(false);
         canvasPanel.SetActive(false);
@@ -290,7 +290,7 @@ public class TileManager : MonoBehaviour
         {
             if (Inventory.instance.inventoryItemList[slotNumber].itemType == Item.ItemType.Seed)
             {
-                Database.instance.ChangeHP(-3);
+                DataController.instance.data.ChangeHP(-3);
                 seedType = Inventory.instance.inventoryItemList[slotNumber].itemID;
                 ChangeState(TSTATE.STAGE1);
                 Debug.Log("is Clicked. And SeedType is" + seedType);
@@ -302,16 +302,16 @@ public class TileManager : MonoBehaviour
             {
                 noticePanel.sprite = Resources.Load("Sprites/" + "SeedOnly_Notice", typeof(Sprite)) as Sprite;
                 noticePanel.gameObject.SetActive(true);
-                Database.instance.noticeActivated = true;
+                DataController.instance.data.noticeActivated = true;
             }
         }
         else if (tileState == TSTATE.PLANTABLE && Inventory.instance.isEmpty == false) //너무 멀리 있음
         {
             noticePanel.sprite = Resources.Load("Sprites/" + "FarTile_Notice", typeof(Sprite)) as Sprite;
             noticePanel.gameObject.SetActive(true);
-            Database.instance.noticeActivated = true;
+            DataController.instance.data.noticeActivated = true;
         }
-        Database.instance.tileActivated = false;
+        DataController.instance.data.tileActivated = false;
         plantPanel.SetActive(false);
         canvasPanel.SetActive(false);
     }
@@ -323,7 +323,7 @@ public class TileManager : MonoBehaviour
         isPlanted = false;
         isStarted = false;
         reapPanel.SetActive(false);
-        Database.instance.ChangeHP(-3);
+        DataController.instance.data.ChangeHP(-3);
         Inventory.instance.GetAnItem(seedType + 10000);
         ResetTile();
     }

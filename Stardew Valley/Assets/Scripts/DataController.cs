@@ -1,10 +1,27 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.IO;
+using System;
+using System.Data;
+using UnityEngine.UIElements;
 
 public class DataController : MonoBehaviour
 {
-    // Start is called before the first frame update
+    static public DataController instance;
+    public Database data = new Database();
+
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else if (instance != this)
+        {
+            Destroy(gameObject);
+        }
+    }
     void Start()
     {
         
@@ -23,11 +40,25 @@ public class DataController : MonoBehaviour
 
     public void LoadButton()
     {
-
+        string path = Path.Combine(Application.dataPath, "GameData.Json");
+        string jsonData = File.ReadAllText(path);
+        data = JsonUtility.FromJson<Database>(jsonData);
     }
 
     public void ExitButton()
     {
 
+    }
+
+    public void SaveButton()
+    {
+        string jsonData = JsonUtility.ToJson(data);
+        string path = Path.Combine(Application.dataPath, "GameData.Json");
+        File.WriteAllText(path, jsonData);
+    }
+
+    public void OnApplicationQuit()
+    {
+        SaveButton();
     }
 }

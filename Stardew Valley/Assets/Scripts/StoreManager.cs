@@ -8,20 +8,20 @@ public class StoreManager : MonoBehaviour
     public GameObject storeWindow;
     public void OnMouseUp()
     {
-        if(Database.instance.storeActivated == false)
+        if(DataController.instance.data.storeActivated == false)
         {
             AudioManager.instance.Play("OpenWindow");
-            Database.instance.storeActivated = true;
+            DataController.instance.data.storeActivated = true;
             storeWindow.SetActive(true);
-            Database.instance.sellEnabled = true;
+            DataController.instance.data.sellEnabled = true;
         }
     }
 
     public void BtnOK()
     {
         AudioManager.instance.Play("OpenWindow");
-        Database.instance.sellEnabled = false;
-        Database.instance.storeActivated = false;
+        DataController.instance.data.sellEnabled = false;
+        DataController.instance.data.storeActivated = false;
         storeWindow.SetActive(false);
     }
 

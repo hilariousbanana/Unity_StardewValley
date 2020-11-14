@@ -22,12 +22,12 @@ public class InventorySlot : MonoBehaviour
     {
         if(Inventory.instance.isEmpty == false)
         {
-            Database.instance.chosenSlot = slotNumber;
+            DataController.instance.data.chosenSlot = slotNumber;
             usable = true;
             chosenBox.transform.SetParent(pos.gameObject.transform);
             chosenBox.transform.position = pos.position;
             //Debug.Log("Clicked. at" + slotNumber);
-            if(Database.instance.sellEnabled)
+            if(DataController.instance.data.sellEnabled)
             {
                  switch(Inventory.instance.inventoryItemList[slotNumber].itemID)
                 {
@@ -63,7 +63,7 @@ public class InventorySlot : MonoBehaviour
                         break;
                 }
             }
-            else if(Database.instance.sellEnabled == false)
+            else if(DataController.instance.data.sellEnabled == false)
             {
                 switch (Inventory.instance.inventoryItemList[slotNumber].itemID)
                 {
@@ -134,18 +134,18 @@ public class InventorySlot : MonoBehaviour
     void SellItem(int _slotNum, int _gold)
     {
         Inventory.instance.UseAnItem(_slotNum);
-        Database.instance.ChangeGold(_gold);
+        DataController.instance.data.ChangeGold(_gold);
     }
 
     void ItemEffect(int _slotNum, float _hp)
     {
-        if(Inventory.instance.inventoryItemList[slotNumber].itemID == 30002 && !Database.instance.coffeeDrink)
+        if(Inventory.instance.inventoryItemList[slotNumber].itemID == 30002 && !DataController.instance.data.coffeeDrink)
         {
-            if(!Database.instance.coffeeDrink)
+            if(!DataController.instance.data.coffeeDrink)
             {
                 Inventory.instance.UseAnItem(_slotNum);
-                Database.instance.ChangeSpeed(Database.instance.runSpeed);
-                Database.instance.coffeeDrink = true;
+                DataController.instance.data.ChangeSpeed(DataController.instance.data.runSpeed);
+                DataController.instance.data.coffeeDrink = true;
             }
             else
             {
@@ -155,7 +155,7 @@ public class InventorySlot : MonoBehaviour
         else
         {
             Inventory.instance.UseAnItem(_slotNum);
-            Database.instance.ChangeHP((int)_hp);
+            DataController.instance.data.ChangeHP((int)_hp);
         }
     }
 }

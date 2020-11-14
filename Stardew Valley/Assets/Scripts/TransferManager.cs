@@ -37,7 +37,7 @@ public class TransferManager : MonoBehaviour
         {
             panel.SetActive(true);
             StartCoroutine(MoveCoroutine());
-            Database.instance.curMapNum = mapNumber;
+            DataController.instance.data.curMapNum = mapNumber;
         }
     }
 

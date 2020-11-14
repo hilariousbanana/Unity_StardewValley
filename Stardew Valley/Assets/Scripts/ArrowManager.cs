@@ -21,18 +21,18 @@ public class ArrowManager : MonoBehaviour
 
     IEnumerator MoveCoroutine()
     {
-        Database.instance.tempRot = 170.0f;
+        DataController.instance.data.tempRot = 170.0f;
         while (CheckNextDay() == false)
         {
-            tf.rotation = Quaternion.Euler(new Vector3(0, 0, Database.instance.tempRot));
-            Database.instance.tempRot -= 0.27f;
+            tf.rotation = Quaternion.Euler(new Vector3(0, 0, DataController.instance.data.tempRot));
+            DataController.instance.data.tempRot -= 0.27f;
             yield return new WaitForSeconds(1.0f);
         }
-        Database.instance.tempRot = 170.0f;
+        DataController.instance.data.tempRot = 170.0f;
     }
 
     bool CheckNextDay()
     {
-        return Database.instance.isNextDay;
+        return DataController.instance.data.isNextDay;
     }
 }

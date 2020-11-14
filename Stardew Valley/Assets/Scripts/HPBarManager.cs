@@ -10,6 +10,6 @@ public class HPBarManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        hpBar.value = Database.instance.curHp * 0.01f;
+        hpBar.value = DataController.instance.data.curHp * 0.01f;
     }
 }
