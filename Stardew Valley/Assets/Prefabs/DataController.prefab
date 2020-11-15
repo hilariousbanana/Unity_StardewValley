@@ -1,0 +1,79 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8202582309869429973
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 514970832228292074}
+  - component: {fileID: 6427309184481507059}
+  m_Layer: 0
+  m_Name: DataController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &514970832228292074
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8202582309869429973}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 321.32227, y: 1137.27, z: -129.30943}
+  m_LocalScale: {x: 1.4479637, y: 1.4479637, z: 1.4479637}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6427309184481507059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8202582309869429973}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82b6959a547aab1469e2449ae1b344e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data:
+    playerSpeed: 0
+    runSpeed: 0
+    coffeeDrink: 0
+    playerPos: {x: 0, y: 0, z: 0}
+    itemList: []
+    sellEnabled: 0
+    chosenItemID: 0
+    chosenSlot: 0
+    chosenTile: 0
+    inFarm: 0
+    isActivated: 0
+    tileActivated: 0
+    noticeActivated: 0
+    storeActivated: 0
+    clockHand: {fileID: 0}
+    tempRot: 0
+    minute: 0
+    hour: 0
+    day: 0
+    sleepHour: 0
+    isSleeping: 0
+    reset: 0
+    sleepException: 0
+    season: 0
+    minute_Text: 
+    hour_Text: 
+    day_Text: 
+    season_Text: 
+    isNextDay: 0
+    curHp: 100
+    gold: 0
+    gold_Text: 
+    curMapNum: 0

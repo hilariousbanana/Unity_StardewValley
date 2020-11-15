@@ -24,7 +24,9 @@ public class DataController : MonoBehaviour
     }
     void Start()
     {
-        
+        data.InitializeVariables();
+        data.LinkDataToText();
+        data.AddItemList();
     }
 
     // Update is called once per frame
