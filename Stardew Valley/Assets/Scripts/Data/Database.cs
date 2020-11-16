@@ -62,34 +62,6 @@ public class Database
     //그 외
     public int curMapNum;
 
-    private void Awake()
-    {
-        //if(instance == null)
-        //{
-        //    instance = this;
-        //}
-        //else if(instance != this)
-        //{
-        //    Destroy(gameObject);
-        //}
-    }
-
-    private void Start()
-    {
-        
-    }
-
-    //private void Update()
-    //{
-    //    if (curMapNum == 1)
-    //    {
-    //        inFarm = true;
-    //    }
-    //    else
-    //        inFarm = false;
-    //}
-
-
     //데이터 - UI텍스트 연동
     public void LinkDataToText()
     {

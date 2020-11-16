@@ -5,6 +5,7 @@ using UnityEngine.XR;
 
 public class MovingObject : MonoBehaviour
 {
+    static public MovingObject instance;
     float speed;
     float runSpeed;
     float applyRunSpeed;
@@ -16,18 +17,31 @@ public class MovingObject : MonoBehaviour
     public LayerMask layerMask;
 
     public bool canWalk = true;
+
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else if (instance != this)
+        {
+            Destroy(gameObject);
+        }
+    }
     void Start()
     {
         animator = GetComponent<Animator>();
         boxCollider = GetComponent<BoxCollider2D>();
         speed = DataController.instance.data.playerSpeed;
         runSpeed = DataController.instance.data.runSpeed;
+        this.transform.position = DataController.instance.data.playerPos;
     }
 
     void Update()
     {
-        DataController.instance.data.playerPos = this.transform.position;
         UpdateSpeed();
+        UpdatePos();
         if (Input.GetKey(KeyCode.LeftShift))
         {
             applyRunSpeed = runSpeed;
@@ -87,5 +101,10 @@ public class MovingObject : MonoBehaviour
         {
             speed = DataController.instance.data.playerSpeed;
         }
+    }
+
+    public Vector3 UpdatePos()
+    {
+        return this.transform.position;
     }
 }
