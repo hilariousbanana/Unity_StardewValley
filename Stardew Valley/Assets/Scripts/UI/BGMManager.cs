@@ -2,27 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BGMManager : MonoBehaviour
+public sealed class BGMManager : MonoSingleton<BGMManager>
 {
-    static public BGMManager instance;
-
     public AudioClip[] clips;
     private AudioSource source;
 
     private WaitForSeconds waitTime = new WaitForSeconds(0.01f);
 
-    private void Awake()
-    {
-        if(instance != null)
-        {
-            Destroy(this.gameObject);
-        }
-        else
-        {
-            DontDestroyOnLoad(this.gameObject);
-            instance = this;
-        }
-    }
     // Start is called before the first frame update
     void Start()
     {

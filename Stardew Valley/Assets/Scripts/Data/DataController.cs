@@ -5,23 +5,11 @@ using System.IO;
 using System.Data;
 using UnityEngine.UIElements;
 
-public class DataController : MonoBehaviour
+public sealed class DataController : MonoSingleton<DataController>
 {
-    static public DataController instance;
     public Database data = new Database();
     public GameObject title;
 
-    private void Awake()
-    {
-        if (instance == null)
-        {
-            instance = this;
-        }
-        else if (instance != this)
-        {
-            Destroy(gameObject);
-        }
-    }
     void Start()
     {
         data.InitializeVariables();
