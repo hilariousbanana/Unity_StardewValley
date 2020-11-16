@@ -319,7 +319,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5011687486923657481}
+      - m_Target: {fileID: 1684389938972309837}
         m_TargetAssemblyTypeName: DataController, Assembly-CSharp
         m_MethodName: NewButton
         m_Mode: 1
@@ -450,7 +450,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5011687486923657481}
+      - m_Target: {fileID: 1684389938972309837}
         m_TargetAssemblyTypeName: DataController, Assembly-CSharp
         m_MethodName: ExitButton
         m_Mode: 1
@@ -581,7 +581,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5011687486923657481}
+      - m_Target: {fileID: 1684389938972309837}
         m_TargetAssemblyTypeName: DataController, Assembly-CSharp
         m_MethodName: LoadButton
         m_Mode: 1
@@ -604,14 +604,13 @@ GameObject:
   - component: {fileID: 6543440158994420768}
   - component: {fileID: 815035447156576558}
   - component: {fileID: 7943301539161525529}
-  - component: {fileID: 5011687486923657481}
   m_Layer: 5
   m_Name: Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &6543440158994420768
 RectTransform:
   m_ObjectHideFlags: 0
@@ -672,52 +671,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &5011687486923657481
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7665554700617648051}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 82b6959a547aab1469e2449ae1b344e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  data:
-    playerSpeed: 0
-    runSpeed: 0
-    coffeeDrink: 0
-    playerPos: {x: 0, y: 0, z: 0}
-    itemList: []
-    sellEnabled: 0
-    chosenItemID: 0
-    chosenSlot: 0
-    chosenTile: 0
-    inFarm: 0
-    isActivated: 0
-    tileActivated: 0
-    noticeActivated: 0
-    storeActivated: 0
-    clockHand: {fileID: 0}
-    tempRot: 0
-    minute: 0
-    hour: 0
-    day: 0
-    sleepHour: 0
-    isSleeping: 0
-    reset: 0
-    sleepException: 0
-    season: 0
-    minute_Text: 
-    hour_Text: 
-    day_Text: 
-    season_Text: 
-    isNextDay: 0
-    curHp: 100
-    gold: 0
-    gold_Text: 
-    curMapNum: 0
 --- !u!1001 &1526387033679206685
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1097,6 +1050,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 514970832228292074, guid: 7c58eb2d4c95f3b4285d591a4a01d9d5, type: 3}
   m_PrefabInstance: {fileID: 5643648186289459134}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1684389938972309837 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6427309184481507059, guid: 7c58eb2d4c95f3b4285d591a4a01d9d5, type: 3}
+  m_PrefabInstance: {fileID: 5643648186289459134}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82b6959a547aab1469e2449ae1b344e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &5796997495435566792
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2202,14 +2166,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4243e181c9549de469c602b07254b2e7, type: 3}
---- !u!224 &3386702504051862985 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 6446326019444541134, guid: 4243e181c9549de469c602b07254b2e7, type: 3}
-  m_PrefabInstance: {fileID: 8613706753583246087}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &6559614576809833319 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3207238119192467552, guid: 4243e181c9549de469c602b07254b2e7, type: 3}
+  m_PrefabInstance: {fileID: 8613706753583246087}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &3386702504051862985 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 6446326019444541134, guid: 4243e181c9549de469c602b07254b2e7, type: 3}
   m_PrefabInstance: {fileID: 8613706753583246087}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &9201495708114780019

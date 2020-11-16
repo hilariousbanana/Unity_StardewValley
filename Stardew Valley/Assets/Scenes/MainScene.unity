@@ -18211,6 +18211,10 @@ PrefabInstance:
       propertyPath: noticePanel
       value: 
       objectReference: {fileID: 681624433}
+    - target: {fileID: 7665554700617648051, guid: f94ef675da13a974d9bbb5b8440929b0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7685619679255688993, guid: f94ef675da13a974d9bbb5b8440929b0, type: 3}
       propertyPath: m_AnchorMin.y
       value: 0
@@ -19025,6 +19029,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7032265686035737521, guid: f94ef675da13a974d9bbb5b8440929b0, type: 3}
+    - {fileID: 5011687486923657481, guid: f94ef675da13a974d9bbb5b8440929b0, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: f94ef675da13a974d9bbb5b8440929b0, type: 3}
 --- !u!114 &3386702503056821786 stripped
 MonoBehaviour:

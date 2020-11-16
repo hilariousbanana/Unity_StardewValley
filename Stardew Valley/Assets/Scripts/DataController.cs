@@ -10,6 +10,7 @@ public class DataController : MonoBehaviour
 {
     static public DataController instance;
     public Database data = new Database();
+    public GameObject title;
 
     private void Awake()
     {
@@ -45,11 +46,12 @@ public class DataController : MonoBehaviour
         string path = Path.Combine(Application.dataPath, "GameData.Json");
         string jsonData = File.ReadAllText(path);
         data = JsonUtility.FromJson<Database>(jsonData);
+        title.SetActive(false);
     }
 
     public void ExitButton()
     {
-
+        Application.Quit();
     }
 
     public void SaveButton()
@@ -57,6 +59,7 @@ public class DataController : MonoBehaviour
         string jsonData = JsonUtility.ToJson(data);
         string path = Path.Combine(Application.dataPath, "GameData.Json");
         File.WriteAllText(path, jsonData);
+        title.SetActive(false);
     }
 
     public void OnApplicationQuit()
