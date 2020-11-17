@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Inventory : MonoBehaviour
+public class Inventory : MonoSingleton<Inventory>
 {
-    public static Inventory instance;
     private InventorySlot[] slots;
 
     public List<Item> inventoryItemList;
@@ -16,22 +15,8 @@ public class Inventory : MonoBehaviour
 
     public bool isEmpty = true;
 
-    private void Awake()
-    {
-        if (instance == null)
-        {
-            instance = this;
-        }
-        else if (instance != this)
-        {
-            Destroy(gameObject);
-        }
-    }
-
     private void Start()
     {
-        instance = this;
-
         inventoryItemList = new List<Item>();
         slots = tf.GetComponentsInChildren<InventorySlot>();
         

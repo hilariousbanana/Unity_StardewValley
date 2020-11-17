@@ -3,24 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class FadeManager : MonoBehaviour
+public class FadeManager : MonoSingleton<FadeManager>
 {
-    public static FadeManager instance;
-
     private Image img;
     bool playFlag = false;
 
-    private void Awake()
-    {
-        if (instance == null)
-        {
-            instance = this;
-        }
-        else if (instance != this)
-        {
-            Destroy(gameObject);
-        }
-    }
     // Start is called before the first frame update
     void Start()
     {

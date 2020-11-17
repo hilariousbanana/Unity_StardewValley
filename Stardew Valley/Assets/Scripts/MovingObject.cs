@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR;
 
-public class MovingObject : MonoBehaviour
+public class MovingObject : MonoSingleton<MovingObject>
 {
-    static public MovingObject instance;
     float speed;
     float runSpeed;
     float applyRunSpeed;
@@ -18,17 +17,6 @@ public class MovingObject : MonoBehaviour
 
     public bool canWalk = true;
 
-    private void Awake()
-    {
-        if (instance == null)
-        {
-            instance = this;
-        }
-        else if (instance != this)
-        {
-            Destroy(gameObject);
-        }
-    }
     void Start()
     {
         animator = GetComponent<Animator>();

@@ -4,9 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using System;
 
-public class GameManager : MonoBehaviour
+public class GameManager : MonoSingleton<GameManager>
 {
-    public static GameManager instance;
     enum GAMESTATE
     { 
         DAY,           
@@ -19,18 +18,6 @@ public class GameManager : MonoBehaviour
     GAMESTATE state;
     public Image noticePanel;
     private DateTime loginTime;
-
-    private void Awake()
-    {
-        if (instance == null)
-        {
-            instance = this;
-        }
-        else if (instance != this)
-        {
-            Destroy(gameObject);
-        }
-    }
 
     // Start is called before the first frame update
     void Start()

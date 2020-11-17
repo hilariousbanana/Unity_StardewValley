@@ -2,25 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AudioManager : MonoBehaviour
-{
-    static public AudioManager instance;
-
+public class AudioManager : MonoSingleton<AudioManager>
+{ 
     [SerializeField]
     public Sound[] sounds;
 
-    private void Awake()
-    {
-        if (instance != null)
-        {
-            Destroy(this.gameObject);
-        }
-        else
-        {
-            DontDestroyOnLoad(this.gameObject);
-            instance = this;
-        }
-    }
     // Start is called before the first frame update
     void Start()
     {
