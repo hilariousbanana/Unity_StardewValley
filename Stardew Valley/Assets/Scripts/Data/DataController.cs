@@ -9,6 +9,7 @@ public sealed class DataController : MonoSingleton<DataController>
 {
     public Database data = new Database();
     public GameObject title;
+    public GameObject player;
 
     void Start()
     {
@@ -43,7 +44,7 @@ public sealed class DataController : MonoSingleton<DataController>
 
     public void LoadButton()
     {
-        data.playerPos = MovingObject.instance.UpdatePos();
+        data.playerPos = player.transform.position;
         string path = Path.Combine(Application.dataPath, "GameData.Json");
         string jsonData = File.ReadAllText(path);
         data = JsonUtility.FromJson<Database>(jsonData);
@@ -59,7 +60,7 @@ public sealed class DataController : MonoSingleton<DataController>
 
     public void SaveButton()
     {
-        data.playerPos = MovingObject.instance.UpdatePos();
+        data.playerPos = player.transform.position;
         string jsonData = JsonUtility.ToJson(data);
         string path = Path.Combine(Application.dataPath, "GameData.Json");
         File.WriteAllText(path, jsonData);

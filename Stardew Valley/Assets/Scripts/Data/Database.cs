@@ -7,9 +7,6 @@ using System.IO;
 [System.Serializable]
 public class Database
 {
-    //public static Database instance;
-
-
     //플레이어 관련 var
     public float playerSpeed;
     public float runSpeed;
