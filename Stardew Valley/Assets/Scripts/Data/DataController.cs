@@ -11,17 +11,18 @@ public sealed class DataController : MonoSingleton<DataController>
     public GameObject title;
     public GameObject player;
 
-    void Start()
-    {
-        data.InitializeVariables();
-        data.LinkDataToText();
-        data.AddItemList();
-    }
-
     // Update is called once per frame
     void Update()
     {
         data.LinkDataToText();
+    }
+
+    public void Initialization()
+    {
+        data.InitializeVariables();
+        data.LinkDataToText();
+        data.AddItemList();
+        player.transform.position = data.playerPos;
     }
 
     public void NewButton()
