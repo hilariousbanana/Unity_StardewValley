@@ -28,8 +28,8 @@ public class MovingObject : MonoSingleton<MovingObject>
 
     void Update()
     {
-        UpdateSpeed();
-        UpdatePos();
+        //UpdateSpeed();
+        //UpdatePos();
         if (Input.GetKey(KeyCode.LeftShift))
         {
             applyRunSpeed = runSpeed;

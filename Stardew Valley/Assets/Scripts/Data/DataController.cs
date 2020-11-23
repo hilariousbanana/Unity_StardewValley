@@ -28,16 +28,17 @@ public sealed class DataController : MonoSingleton<DataController>
     public void NewButton()
     {
         string path = Path.Combine(Application.dataPath, "GameData.Json");
-        if(File.Exists(path))
-        {
-            string jsonData = File.ReadAllText(path);
-            data = JsonUtility.FromJson<Database>(jsonData);
-        }
-        else
-        {
-            data = new Database();
-        }
-
+        //if(File.Exists(path))
+        //{
+        //    string jsonData = File.ReadAllText(path);
+        //    data = JsonUtility.FromJson<Database>(jsonData);
+        //}
+        //else
+        //{
+        //    data = new Database();
+        //}
+        data = new Database();
+        Initialization();
         int rand = Random.Range(1, 4);
         BGMManager.instance.Play(rand);
         title.SetActive(false);
@@ -45,10 +46,10 @@ public sealed class DataController : MonoSingleton<DataController>
 
     public void LoadButton()
     {
-        data.playerPos = player.transform.position;
         string path = Path.Combine(Application.dataPath, "GameData.Json");
         string jsonData = File.ReadAllText(path);
         data = JsonUtility.FromJson<Database>(jsonData);
+        player.transform.position = data.playerPos;
         int rand = Random.Range(1, 4);
         BGMManager.instance.Play(rand);
         title.SetActive(false);
@@ -71,5 +72,11 @@ public sealed class DataController : MonoSingleton<DataController>
     public void OnApplicationQuit()
     {
         SaveButton();
+    }
+
+    public void UpdateVariable()
+    {
+        data.playerPos = player.transform.position;
+        data.inventory = Inventory.instance.inventoryItemList;
     }
 }

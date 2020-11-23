@@ -15,6 +15,7 @@ public class Database
 
     //아이템 관련 var
     public List<Item> itemList = new List<Item>();
+    public List<Item> inventory;
     public bool sellEnabled = false;
     public int chosenItemID;
     public int chosenSlot = 0;
@@ -107,6 +108,10 @@ public class Database
         //runSpeed = 0.05f;
         playerSpeed = 1f;
         runSpeed = 0.5f;
+
+        playerPos = new Vector3(745.0f, 1100.0f, 1.0f);
+        clockHand = GameObject.Find("ClockHand");
+        clockHand.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 170.0f));
     }
 
     //아이템 관련 func
