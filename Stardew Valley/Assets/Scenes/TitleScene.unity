@@ -326,6 +326,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3386702502475239837, guid: f94ef675da13a974d9bbb5b8440929b0, type: 3}
+      propertyPath: canvas
+      value: 
+      objectReference: {fileID: 963479012}
     - target: {fileID: 3386702503569998059, guid: f94ef675da13a974d9bbb5b8440929b0, type: 3}
       propertyPath: m_Name
       value: Canvas
@@ -599,6 +603,11 @@ PrefabInstance:
 --- !u!1 &796666225 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7665554700617648051, guid: f94ef675da13a974d9bbb5b8440929b0, type: 3}
+  m_PrefabInstance: {fileID: 796666224}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &963479012 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3386702502475239835, guid: f94ef675da13a974d9bbb5b8440929b0, type: 3}
   m_PrefabInstance: {fileID: 796666224}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1312396976 stripped

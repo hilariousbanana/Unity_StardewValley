@@ -339,7 +339,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd41d22e289aada4c9ae51e66da3fa20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  panel: {fileID: 0}
+  panel: {fileID: 4809355454652128190, guid: af7f36bec44129a4087cbca616f895ed, type: 3}
   targetPos: {fileID: 0}
   camPos: {fileID: 0}
   mapNumber: 0

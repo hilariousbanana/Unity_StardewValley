@@ -14,6 +14,11 @@ public sealed class DataController : MonoSingleton<DataController>
     private void Update()
     {
         data.LinkDataToText();
+
+        if(data.isNextDay)
+        {
+            SaveData();
+        }
     }
 
     void CreateNewData()
@@ -27,6 +32,7 @@ public sealed class DataController : MonoSingleton<DataController>
         string filePath = Path.Combine(Application.dataPath, "GameData.Json");
         string FromJsonData = File.ReadAllText(filePath);
         data = JsonUtility.FromJson<Database>(FromJsonData);
+        data.DeserializeObject();
     }
 
     void SaveData()

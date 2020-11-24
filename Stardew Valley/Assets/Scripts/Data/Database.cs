@@ -119,6 +119,11 @@ public class Database
         AddItemList();
     }
 
+    public void DeserializeObject()
+    {
+        clockHand = GameObject.Find("ClockHand");
+    }
+
     //아이템 관련 func
     public void AddItemList()
     {

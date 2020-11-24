@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class FadeManager : MonoSingleton<FadeManager>
+public class FadeManager : MonoBehaviour
 {
+    public GameObject canvas;
     private Image img;
     bool playFlag = false;
 
@@ -41,7 +42,7 @@ public class FadeManager : MonoSingleton<FadeManager>
             yield return new WaitForSeconds(0.02f);
         }
         playFlag = false;
-        this.gameObject.SetActive(false);
+        canvas.SetActive(false);
         yield return null;
     }
 }

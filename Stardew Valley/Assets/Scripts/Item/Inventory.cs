@@ -19,11 +19,12 @@ public class Inventory : MonoSingleton<Inventory>
     {
         inventoryItemList = new List<Item>();
         slots = tf.GetComponentsInChildren<InventorySlot>();
-        
+
         for(int i = 0; i < slots.Length; i++)
         {
             slots[i].slotNumber = i;
         }
+        InitInventory();
     }
 
 
