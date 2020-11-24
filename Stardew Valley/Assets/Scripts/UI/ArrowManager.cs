@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class ArrowManager : MonoBehaviour
 {
-    float tempRot;
     Transform tf;
     // Start is called before the first frame update
     void Start()
@@ -21,7 +20,6 @@ public class ArrowManager : MonoBehaviour
 
     IEnumerator MoveCoroutine()
     {
-        DataController.instance.data.tempRot = 170.0f;
         while (CheckNextDay() == false)
         {
             tf.rotation = Quaternion.Euler(new Vector3(0, 0, DataController.instance.data.tempRot));

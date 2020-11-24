@@ -5,9 +5,9 @@ using UnityEngine.XR;
 
 public class MovingObject : MonoSingleton<MovingObject>
 {
-    float speed;
-    float runSpeed;
-    float applyRunSpeed;
+    public float speed;
+    public float runSpeed;
+    public float applyRunSpeed;
 
     private Vector3 vector;
 
@@ -21,13 +21,18 @@ public class MovingObject : MonoSingleton<MovingObject>
     {
         animator = GetComponent<Animator>();
         boxCollider = GetComponent<BoxCollider2D>();
-        speed = DataController.instance.data.playerSpeed;
-        runSpeed = DataController.instance.data.runSpeed;
+        
         this.transform.position = DataController.instance.data.playerPos;
     }
 
     void Update()
     {
+        if(!DataController.instance.data.bGameStart)
+        {
+            DataController.instance.data.bGameStart = true;
+            speed = DataController.instance.data.playerSpeed;
+            runSpeed = DataController.instance.data.runSpeed;
+        }
         //UpdateSpeed();
         //UpdatePos();
         if (Input.GetKey(KeyCode.LeftShift))

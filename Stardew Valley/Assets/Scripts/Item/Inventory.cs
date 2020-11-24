@@ -39,6 +39,14 @@ public class Inventory : MonoSingleton<Inventory>
         }
     }
 
+    public void InitInventory()
+    {
+        for(int i = 0; i <inventoryItemList.Count; i++)
+        {
+            slots[i].InitSlot();
+        }
+    }
+
     public void UpdateItem()
     {
         for (int i = 0; i < inventoryItemList.Count; i++)

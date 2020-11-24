@@ -7,11 +7,12 @@ using System.IO;
 [System.Serializable]
 public class Database
 {
+    public bool bGameStart = false;
     //플레이어 관련 var
-    public float playerSpeed;
-    public float runSpeed;
-    public bool coffeeDrink;
-    public Vector3 playerPos;
+    public float playerSpeed = 1f;
+    public float runSpeed = 0.5f;
+    public bool coffeeDrink = false;
+    public Vector3 playerPos = new Vector3(745.0f, 1100.0f, 1.0f);
 
     //아이템 관련 var
     public List<Item> itemList = new List<Item>();
@@ -111,7 +112,9 @@ public class Database
 
         playerPos = new Vector3(745.0f, 1100.0f, 1.0f);
         clockHand = GameObject.Find("ClockHand");
-        clockHand.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 170.0f));
+        tempRot = 170.0f;
+        //clockHand.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 170.0f));
+        inventory = Inventory.instance.inventoryItemList;
     }
 
     //아이템 관련 func

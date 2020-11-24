@@ -131,6 +131,11 @@ public class InventorySlot : MonoBehaviour
         icon.color = temp;
     }
 
+    public void InitSlot()
+    {
+        icon.sprite = DataController.instance.data.inventory[slotNumber].itemIcon;
+    }
+
     void SellItem(int _slotNum, int _gold)
     {
         Inventory.instance.UseAnItem(_slotNum);
