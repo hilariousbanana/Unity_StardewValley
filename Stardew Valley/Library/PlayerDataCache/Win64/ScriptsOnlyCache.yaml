@@ -5,8 +5,10 @@ ScriptsOnlyBuild:
     - AudioManager
     - BGMManager
     - Buttons
+    - CameraPosController
     - ClockManager
     - DataController
+    - DontDestroyOnLoad
     - FadeManager
     - GameManager
     - HPBarManager
@@ -17,6 +19,7 @@ ScriptsOnlyBuild:
     - OptionManager
     - SleepManager
     - StoreManager
+    - StoreNPCManager
     - TileBoxMaanger
     - TileManager
     - Tiled2Unity.ObjectLayer
@@ -82,15 +85,11 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 48
       Script: {instanceID: 0}
-    - Class: 49
-      Script: {instanceID: 0}
     - Class: 50
       Script: {instanceID: 0}
     - Class: 60
       Script: {instanceID: 0}
     - Class: 61
-      Script: {instanceID: 0}
-    - Class: 62
       Script: {instanceID: 0}
     - Class: 74
       Script: {instanceID: 0}
@@ -141,8 +140,6 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 13028}
     - Class: 114
-      Script: {instanceID: 13044}
-    - Class: 114
       Script: {instanceID: 13078}
     - Class: 114
       Script: {instanceID: 13302}
@@ -157,33 +154,33 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 14116}
     - Class: 114
-      Script: {instanceID: 14158}
+      Script: {instanceID: 14188}
     - Class: 114
-      Script: {instanceID: 14178}
+      Script: {instanceID: 14206}
     - Class: 114
-      Script: {instanceID: 14204}
+      Script: {instanceID: 14218}
     - Class: 114
-      Script: {instanceID: 14216}
+      Script: {instanceID: 14232}
     - Class: 114
-      Script: {instanceID: 14230}
+      Script: {instanceID: 14256}
     - Class: 114
-      Script: {instanceID: 14254}
+      Script: {instanceID: 14490}
     - Class: 114
-      Script: {instanceID: 14488}
+      Script: {instanceID: 14620}
     - Class: 114
-      Script: {instanceID: 14618}
+      Script: {instanceID: 14682}
     - Class: 114
-      Script: {instanceID: 14680}
+      Script: {instanceID: 14856}
     - Class: 114
-      Script: {instanceID: 14852}
+      Script: {instanceID: 15038}
     - Class: 114
-      Script: {instanceID: 14922}
+      Script: {instanceID: 15160}
     - Class: 114
-      Script: {instanceID: 15034}
+      Script: {instanceID: 15278}
     - Class: 114
-      Script: {instanceID: 15156}
+      Script: {instanceID: 35320}
     - Class: 114
-      Script: {instanceID: 15274}
+      Script: {instanceID: 44094}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -193,6 +190,111 @@ ScriptsOnlyBuild:
     - Class: 196
       Script: {instanceID: 0}
     - Class: 212
+      Script: {instanceID: 0}
+    - Class: 213
+      Script: {instanceID: 0}
+    - Class: 222
+      Script: {instanceID: 0}
+    - Class: 223
+      Script: {instanceID: 0}
+    - Class: 224
+      Script: {instanceID: 0}
+    Assets/Scenes/TitleScene.unity:
+    - Class: 1
+      Script: {instanceID: 0}
+    - Class: 4
+      Script: {instanceID: 0}
+    - Class: 20
+      Script: {instanceID: 0}
+    - Class: 21
+      Script: {instanceID: 0}
+    - Class: 28
+      Script: {instanceID: 0}
+    - Class: 48
+      Script: {instanceID: 0}
+    - Class: 49
+      Script: {instanceID: 0}
+    - Class: 62
+      Script: {instanceID: 0}
+    - Class: 74
+      Script: {instanceID: 0}
+    - Class: 81
+      Script: {instanceID: 0}
+    - Class: 82
+      Script: {instanceID: 0}
+    - Class: 83
+      Script: {instanceID: 0}
+    - Class: 91
+      Script: {instanceID: 0}
+    - Class: 104
+      Script: {instanceID: 0}
+    - Class: 114
+      Script: {instanceID: 11840}
+    - Class: 114
+      Script: {instanceID: 11842}
+    - Class: 114
+      Script: {instanceID: 11844}
+    - Class: 114
+      Script: {instanceID: 11846}
+    - Class: 114
+      Script: {instanceID: 11874}
+    - Class: 114
+      Script: {instanceID: 11948}
+    - Class: 114
+      Script: {instanceID: 12130}
+    - Class: 114
+      Script: {instanceID: 12188}
+    - Class: 114
+      Script: {instanceID: 12454}
+    - Class: 114
+      Script: {instanceID: 12556}
+    - Class: 114
+      Script: {instanceID: 12732}
+    - Class: 114
+      Script: {instanceID: 12762}
+    - Class: 114
+      Script: {instanceID: 12980}
+    - Class: 114
+      Script: {instanceID: 13024}
+    - Class: 114
+      Script: {instanceID: 13028}
+    - Class: 114
+      Script: {instanceID: 13044}
+    - Class: 114
+      Script: {instanceID: 13078}
+    - Class: 114
+      Script: {instanceID: 13556}
+    - Class: 114
+      Script: {instanceID: 13914}
+    - Class: 114
+      Script: {instanceID: 14116}
+    - Class: 114
+      Script: {instanceID: 14158}
+    - Class: 114
+      Script: {instanceID: 14178}
+    - Class: 114
+      Script: {instanceID: 14188}
+    - Class: 114
+      Script: {instanceID: 14218}
+    - Class: 114
+      Script: {instanceID: 14232}
+    - Class: 114
+      Script: {instanceID: 14620}
+    - Class: 114
+      Script: {instanceID: 14926}
+    - Class: 114
+      Script: {instanceID: 15160}
+    - Class: 114
+      Script: {instanceID: 15278}
+    - Class: 114
+      Script: {instanceID: 44094}
+    - Class: 115
+      Script: {instanceID: 0}
+    - Class: 128
+      Script: {instanceID: 0}
+    - Class: 157
+      Script: {instanceID: 0}
+    - Class: 196
       Script: {instanceID: 0}
     - Class: 213
       Script: {instanceID: 0}
@@ -247,7 +349,7 @@ ScriptsOnlyBuild:
     className: AudioPlayableAsset
   - hash:
       serializedVersion: 2
-      Hash: 1c6ffb3b52895e7752a900a51b2c521c
+      Hash: 909c10d5ee4578ab699bfbc1d3d1b96b
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: StoreManager
@@ -637,7 +739,7 @@ ScriptsOnlyBuild:
     className: VerticalLayoutGroup
   - hash:
       serializedVersion: 2
-      Hash: 65b1c507c42e98755b5f03c395630c59
+      Hash: 587146699f1ad7e20abcb2dc6e7a0577
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: MovingObject
@@ -703,6 +805,12 @@ ScriptsOnlyBuild:
     className: Physics2DRaycaster
   - hash:
       serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: DontDestroyOnLoad
+  - hash:
+      serializedVersion: 2
       Hash: a2037a6d3d69e2ae4365852f05289f5a
     assemblyName: Assembly-CSharp.dll
     namespaceName: Tiled2Unity
@@ -721,7 +829,7 @@ ScriptsOnlyBuild:
     className: CircleObject
   - hash:
       serializedVersion: 2
-      Hash: 2326879dd5aa426fef252d0eb2075427
+      Hash: 66b2c308ecccdb33d59086a1019b46a6
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: DataController
@@ -779,6 +887,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: Tiled2Unity
     className: SpriteDepthInMap
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: SceneTransferManager
   - hash:
       serializedVersion: 2
       Hash: de29e83626a7b4b16ae1ca0b09863ed6
@@ -899,7 +1013,20 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
+  - hash:
+      serializedVersion: 2
+      Hash: 01c73a7387326fb4bddc4bca292139f7
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: StoreNPCManager
+  - hash:
+      serializedVersion: 2
+      Hash: 1eabad914969c3f8616b609094aea0bd
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: CameraPosController
   platform: 19
   scenePathNames:
+  - Assets/Scenes/TitleScene.unity
   - Assets/Scenes/MainScene.unity
   playerPath: C:/Users/user/Desktop/Stardew Valley.exe

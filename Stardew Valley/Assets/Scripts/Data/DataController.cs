@@ -7,73 +7,71 @@ using UnityEngine.UIElements;
 
 public sealed class DataController : MonoSingleton<DataController>
 {
-    public Database data = new Database();
-    public GameObject title;
-    GameObject player;
+    public GameObject titlePanel;
+    public GameObject fadePanel;
+    public Database data;
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
         data.LinkDataToText();
     }
 
-    public void Initialization()
+    void CreateNewData()
     {
-        player = FindObjectOfType<MovingObject>().gameObject;
-        data.clockHand = FindObjectOfType<ArrowManager>().gameObject;
-        data.InitializeVariables();
-        data.LinkDataToText();
-        data.AddItemList();
-        player.transform.position = data.playerPos;
-        MovingObject.instance.canWalk = true;
+        data = new Database();
+        data.InitData();
+    }
+
+    void LoadData()
+    {
+        string filePath = Path.Combine(Application.dataPath, "GameData.Json");
+        string FromJsonData = File.ReadAllText(filePath);
+        data = JsonUtility.FromJson<Database>(FromJsonData);
+    }
+
+    void SaveData()
+    {
+        string ToJsonData = JsonUtility.ToJson(data);
+        string filePath = Path.Combine(Application.dataPath, "GameData.Json");
+        File.WriteAllText(filePath, ToJsonData);
     }
 
     public void NewButton()
     {
-        title.SetActive(false);
-        string path = Path.Combine(Application.dataPath, "GameData.Json");
-        data = new Database();
-        SceneTransferManager.instance.TransferScene();
-        Initialization();
+        CreateNewData();
+        AudioManager.instance.Play("Clilck");
+        fadePanel.SetActive(true);
+        titlePanel.SetActive(false);
         int rand = Random.Range(1, 4);
         BGMManager.instance.Play(rand);
+        SceneTransferManager.instance.TransferScene();
     }
 
     public void LoadButton()
     {
-        title.SetActive(false);
-        string path = Path.Combine(Application.dataPath, "GameData.Json");
-        string jsonData = File.ReadAllText(path);
-        data = JsonUtility.FromJson<Database>(jsonData);
-        SceneTransferManager.instance.TransferScene();
-        player.transform.position = data.playerPos;
+        LoadData();
+        AudioManager.instance.Play("Clilck");
+        fadePanel.SetActive(true);
+        titlePanel.SetActive(false);
         int rand = Random.Range(1, 4);
         BGMManager.instance.Play(rand);
+        SceneTransferManager.instance.TransferScene();
     }
 
     public void ExitButton()
     {
-        Application.Quit();
+        AudioManager.instance.Play("Clilck");
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+        Application.Quit(); // 어플리케이션 종료
+#endif
     }
 
-    public void SaveButton()
+    public void SaveAndExitButton()
     {
-        title.SetActive(false);
-        data.playerPos = player.transform.position;
-        data.bGameStart = false;
-        string jsonData = JsonUtility.ToJson(data);
-        string path = Path.Combine(Application.dataPath, "GameData.Json");
-        File.WriteAllText(path, jsonData);
-    }
-
-    public void OnApplicationQuit()
-    {
-        SaveButton();
-    }
-
-    public void UpdateVariable()
-    {
-        data.playerPos = player.transform.position;
-        data.inventory = Inventory.instance.inventoryItemList;
+        AudioManager.instance.Play("Clilck");
+        SaveData();
+        ExitButton();
     }
 }

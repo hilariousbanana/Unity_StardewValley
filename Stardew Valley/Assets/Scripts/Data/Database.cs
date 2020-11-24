@@ -21,6 +21,7 @@ public class Database
     public int chosenItemID;
     public int chosenSlot = 0;
     public int chosenTile = 0;
+    public int storeNumber = 0;
     public bool inFarm = false;
     public bool isActivated = false;
     public bool tileActivated = false;
@@ -35,13 +36,13 @@ public class Database
 
     public GameObject clockHand;
     public float tempRot;
-    public int minute;
-    public int hour;
-    public int day;
-    public int sleepHour;
-    public bool isSleeping;
-    public bool reset;
-    public bool sleepException;
+    public int minute = 0;
+    public int hour = 7;
+    public int day =1;
+    public int sleepHour = 0;
+    public bool isSleeping = false;
+    public bool reset = false;
+    public bool sleepException = false;
     public SEASON season = SEASON.SPRING;
 
     public string minute_Text;
@@ -54,7 +55,7 @@ public class Database
     //플레이어 관련 var
     public const int MaxHp = 100;
     public int curHp = MaxHp;
-    public int gold;
+    public int gold = 3000;
     public string gold_Text;
 
 
@@ -88,7 +89,7 @@ public class Database
     }
 
     //변수 초기화
-    public void InitializeVariables()
+    public void InitData()
     {
         minute = 0;
         hour = 7;
@@ -115,6 +116,7 @@ public class Database
         tempRot = 170.0f;
         //clockHand.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 170.0f));
         inventory = Inventory.instance.inventoryItemList;
+        AddItemList();
     }
 
     //아이템 관련 func

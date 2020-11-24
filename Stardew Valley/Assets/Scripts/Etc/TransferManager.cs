@@ -6,7 +6,8 @@ using UnityEngine.UI;
 public class TransferManager : MonoBehaviour
 {
     private GameObject player;
-    public GameObject panel; 
+    GameObject canvas;
+    GameObject panel; 
     public Transform targetPos;
     private Camera cam;
     public Transform camPos;
@@ -17,6 +18,8 @@ public class TransferManager : MonoBehaviour
     void Start()
     {
         cam = Camera.main;
+        canvas = GameObject.Find("Canvas");
+        panel = canvas.transform.GetChild(4).gameObject;
         player = FindObjectOfType<MovingObject>().gameObject;
         boxCollider = GetComponent<BoxCollider2D>();
     }

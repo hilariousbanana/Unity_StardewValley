@@ -123,6 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &70877998 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8081790536252421217, guid: f94ef675da13a974d9bbb5b8440929b0, type: 3}
+  m_PrefabInstance: {fileID: 796666224}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &430841854
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -180,6 +185,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1988561690489276085, guid: 5930f7ca7e609004bb86ca523f481e8c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3953991510279184504, guid: 5930f7ca7e609004bb86ca523f481e8c, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -281,6 +290,18 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 263078648048829912, guid: f94ef675da13a974d9bbb5b8440929b0, type: 3}
+      propertyPath: foodStore
+      value: 
+      objectReference: {fileID: 70877998}
+    - target: {fileID: 263078648048829912, guid: f94ef675da13a974d9bbb5b8440929b0, type: 3}
+      propertyPath: seedStore
+      value: 
+      objectReference: {fileID: 1312396976}
+    - target: {fileID: 1684389938972309837, guid: f94ef675da13a974d9bbb5b8440929b0, type: 3}
+      propertyPath: titlePanel
+      value: 
+      objectReference: {fileID: 796666225}
     - target: {fileID: 2500925155642781054, guid: f94ef675da13a974d9bbb5b8440929b0, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -473,6 +494,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6319301832315405199, guid: f94ef675da13a974d9bbb5b8440929b0, type: 3}
+      propertyPath: storeWindow
+      value: 
+      objectReference: {fileID: 1312396976}
     - target: {fileID: 6436158731875271081, guid: f94ef675da13a974d9bbb5b8440929b0, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -571,3 +596,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f94ef675da13a974d9bbb5b8440929b0, type: 3}
+--- !u!1 &796666225 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7665554700617648051, guid: f94ef675da13a974d9bbb5b8440929b0, type: 3}
+  m_PrefabInstance: {fileID: 796666224}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1312396976 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4421376024317822391, guid: f94ef675da13a974d9bbb5b8440929b0, type: 3}
+  m_PrefabInstance: {fileID: 796666224}
+  m_PrefabAsset: {fileID: 0}

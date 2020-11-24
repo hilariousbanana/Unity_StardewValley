@@ -1108,6 +1108,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7665554700617648051}
     - target: {fileID: 6427309184481507059, guid: 7c58eb2d4c95f3b4285d591a4a01d9d5, type: 3}
+      propertyPath: fadePanel
+      value: 
+      objectReference: {fileID: 3386702502475239835}
+    - target: {fileID: 6427309184481507059, guid: 7c58eb2d4c95f3b4285d591a4a01d9d5, type: 3}
+      propertyPath: titlePanel
+      value: 
+      objectReference: {fileID: 7665554700617648051}
+    - target: {fileID: 6427309184481507059, guid: 7c58eb2d4c95f3b4285d591a4a01d9d5, type: 3}
       propertyPath: data.clockHand
       value: 
       objectReference: {fileID: 6559614576809833319}
@@ -1206,6 +1214,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3386702503569998063}
     m_Modifications:
+    - target: {fileID: 3992655904282598102, guid: da05ea63b8fd61b4c841b47600654955, type: 3}
+      propertyPath: foodStore
+      value: 
+      objectReference: {fileID: 8081790536252421217}
+    - target: {fileID: 3992655904282598102, guid: da05ea63b8fd61b4c841b47600654955, type: 3}
+      propertyPath: seedStore
+      value: 
+      objectReference: {fileID: 4421376024317822391}
     - target: {fileID: 5631068635484604141, guid: da05ea63b8fd61b4c841b47600654955, type: 3}
       propertyPath: m_Name
       value: Store_Seed
@@ -1312,6 +1328,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da05ea63b8fd61b4c841b47600654955, type: 3}
+--- !u!1 &4421376024317822391 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6737819334764616942, guid: da05ea63b8fd61b4c841b47600654955, type: 3}
+  m_PrefabInstance: {fileID: 6979005940125391193}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &3386702503505862583 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5631068635484604142, guid: da05ea63b8fd61b4c841b47600654955, type: 3}
@@ -1430,6 +1451,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8111aea9c9177bf48b5bb8353abbcbb4, type: 3}
+--- !u!1 &8081790536252421217 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1443286514048316417, guid: 8111aea9c9177bf48b5bb8353abbcbb4, type: 3}
+  m_PrefabInstance: {fileID: 7219231566835630176}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &7895005462854136575 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 702400463243719327, guid: 8111aea9c9177bf48b5bb8353abbcbb4, type: 3}

@@ -34,7 +34,7 @@ public class MovingObject : MonoSingleton<MovingObject>
             runSpeed = DataController.instance.data.runSpeed;
         }
         //UpdateSpeed();
-        //UpdatePos();
+        UpdatePos();
         if (Input.GetKey(KeyCode.LeftShift))
         {
             applyRunSpeed = runSpeed;
@@ -96,8 +96,8 @@ public class MovingObject : MonoSingleton<MovingObject>
         }
     }
 
-    public Vector3 UpdatePos()
+    public void UpdatePos()
     {
-        return this.transform.position;
+        DataController.instance.data.playerPos = this.transform.position;
     }
 }

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5132760296705570940}
   - component: {fileID: 3526485945615286700}
-  - component: {fileID: 8462038336182048267}
+  - component: {fileID: 4838013606146716658}
   m_Layer: 0
   m_Name: NPC - Seed Store
   m_TagString: Untagged
@@ -58,7 +58,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.7786789, y: 2.2069511}
   m_EdgeRadius: 0
---- !u!114 &8462038336182048267
+--- !u!114 &4838013606146716658
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -67,10 +67,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 483670869577304685}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d112370bcc0ab846a7446b8f464d27e, type: 3}
+  m_Script: {fileID: 11500000, guid: 3bc0461410820d243b114a1a639aebfb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  storeWindow: {fileID: 0}
+  storeNumber: 0
 --- !u!1 &5084349960908992768
 GameObject:
   m_ObjectHideFlags: 0
@@ -81,7 +81,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1585093464359733848}
   - component: {fileID: 3579811030014895214}
-  - component: {fileID: 2995308461410848781}
+  - component: {fileID: 132543952850273434}
   m_Layer: 0
   m_Name: NPC - Food Store
   m_TagString: Untagged
@@ -129,7 +129,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.7786789, y: 2.2069511}
   m_EdgeRadius: 0
---- !u!114 &2995308461410848781
+--- !u!114 &132543952850273434
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -138,10 +138,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 5084349960908992768}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d112370bcc0ab846a7446b8f464d27e, type: 3}
+  m_Script: {fileID: 11500000, guid: 3bc0461410820d243b114a1a639aebfb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  storeWindow: {fileID: 0}
+  storeNumber: 1
 --- !u!1 &6850237177662222820
 GameObject:
   m_ObjectHideFlags: 0
@@ -386,7 +386,7 @@ PrefabInstance:
       value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 1216965130613161499, guid: 4d31948bc1427d54d8b5a42b930cff1d, type: 3}
-      propertyPath: targetPos
+      propertyPath: panel
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 1216965130613161499, guid: 4d31948bc1427d54d8b5a42b930cff1d, type: 3}
@@ -394,7 +394,7 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 1216965130613161499, guid: 4d31948bc1427d54d8b5a42b930cff1d, type: 3}
-      propertyPath: panel
+      propertyPath: targetPos
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 1370561659234733788, guid: 4d31948bc1427d54d8b5a42b930cff1d, type: 3}
@@ -422,6 +422,10 @@ PrefabInstance:
       value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 2845648732425269738, guid: 4d31948bc1427d54d8b5a42b930cff1d, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2845648732425269738, guid: 4d31948bc1427d54d8b5a42b930cff1d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -15.399994
       objectReference: {fileID: 0}
@@ -434,6 +438,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2845648732425269738, guid: 4d31948bc1427d54d8b5a42b930cff1d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2845648732425269738, guid: 4d31948bc1427d54d8b5a42b930cff1d, type: 3}
       propertyPath: m_LocalRotation.x
       value: -0
       objectReference: {fileID: 0}
@@ -444,14 +452,6 @@ PrefabInstance:
     - target: {fileID: 2845648732425269738, guid: 4d31948bc1427d54d8b5a42b930cff1d, type: 3}
       propertyPath: m_LocalRotation.z
       value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2845648732425269738, guid: 4d31948bc1427d54d8b5a42b930cff1d, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2845648732425269738, guid: 4d31948bc1427d54d8b5a42b930cff1d, type: 3}
-      propertyPath: m_RootOrder
-      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2845648732425269738, guid: 4d31948bc1427d54d8b5a42b930cff1d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
