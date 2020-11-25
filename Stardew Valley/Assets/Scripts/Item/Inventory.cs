@@ -17,14 +17,13 @@ public class Inventory : MonoSingleton<Inventory>
 
     private void Start()
     {
-        inventoryItemList = new List<Item>();
+        inventoryItemList = DataController.instance.data.inventory;
         slots = tf.GetComponentsInChildren<InventorySlot>();
 
         for(int i = 0; i < slots.Length; i++)
         {
             slots[i].slotNumber = i;
         }
-        InitInventory();
     }
 
 
@@ -42,6 +41,7 @@ public class Inventory : MonoSingleton<Inventory>
 
     public void InitInventory()
     {
+        Debug.Log("Init Inventory. Inventory Item List Count is" + inventoryItemList.Count);
         for(int i = 0; i <inventoryItemList.Count; i++)
         {
             slots[i].InitSlot();

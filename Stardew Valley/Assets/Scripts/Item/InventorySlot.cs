@@ -133,7 +133,8 @@ public class InventorySlot : MonoBehaviour
 
     public void InitSlot()
     {
-        icon.sprite = DataController.instance.data.inventory[slotNumber].itemIcon;
+        itemCount_Text.text = DataController.instance.data.inventory[slotNumber].itemCount.ToString();
+        icon.sprite = Resources.Load("ItemIcon/" + DataController.instance.data.inventory[slotNumber].itemID.ToString(), typeof(Sprite)) as Sprite;
     }
 
     void SellItem(int _slotNum, int _gold)

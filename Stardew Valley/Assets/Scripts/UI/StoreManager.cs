@@ -10,7 +10,7 @@ public class StoreManager : MonoBehaviour
 
     private void Update()
     {
-        if(DataController.instance.data.storeActivated)
+        if(DataController.instance.data.storeActivated && !DataController.instance.data.optionActivated)
         {
             switch(DataController.instance.data.storeNumber)
             {

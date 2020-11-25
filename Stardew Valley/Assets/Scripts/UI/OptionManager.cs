@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class OptionManager : MonoBehaviour
 {
     public GameObject optionPanel;
-    bool isActivated;
     public Slider bgmSlider;
     public Slider sfxSlider;
     BGMManager bgm;
@@ -14,7 +13,6 @@ public class OptionManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        isActivated = false;
         bgm = BGMManager.instance;
         sfx = AudioManager.instance;
     }
@@ -24,9 +22,9 @@ public class OptionManager : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Escape))
         {
-            if(!isActivated)
-            {                
-                isActivated = !isActivated;
+            if(!DataController.instance.data.optionActivated)
+            {
+                DataController.instance.data.optionActivated = !DataController.instance.data.optionActivated;
                 sfx.Play("OpenWindow");
                 optionPanel.SetActive(true);
             }
@@ -41,7 +39,7 @@ public class OptionManager : MonoBehaviour
 
     public void CloseWindow()
     {
-        isActivated = !isActivated;
+        DataController.instance.data.optionActivated = !DataController.instance.data.optionActivated;
         sfx.Play("OpenWindow");
         optionPanel.SetActive(false);
     }

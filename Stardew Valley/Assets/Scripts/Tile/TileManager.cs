@@ -175,7 +175,7 @@ public class TileManager : MonoBehaviour
     public void OnMouseDown()
     {
         Debug.Log(GetDistance());
-        if(DataController.instance.data.tileActivated == false && !isStarted && DataController.instance.data.noticeActivated == false)
+        if(DataController.instance.data.tileActivated == false && !isStarted && DataController.instance.data.noticeActivated == false && !DataController.instance.data.optionActivated)
         {
             canvasPanel.SetActive(true);
             Vector3 screenPos = Camera.main.WorldToScreenPoint(targetPos.position);

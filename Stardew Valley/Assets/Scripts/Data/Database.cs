@@ -27,6 +27,7 @@ public class Database
     public bool tileActivated = false;
     public bool noticeActivated = false;
     public bool storeActivated = false;
+    public bool optionActivated = false;
 
     //시간 관련 var
     public enum SEASON
@@ -122,6 +123,7 @@ public class Database
     public void DeserializeObject()
     {
         clockHand = GameObject.Find("ClockHand");
+        clockHand.transform.rotation = Quaternion.Euler(new Vector3(0, 0, tempRot));
     }
 
     //아이템 관련 func
@@ -260,5 +262,11 @@ public class Database
     public void ChangeSpeed(float _value)
     {
         playerSpeed += _value;
+    }
+
+    public void LoadInventory()
+    {
+        Inventory.instance.inventoryItemList = inventory;
+        Inventory.instance.InitInventory();
     }
 }
