@@ -10,6 +10,7 @@ public sealed class DataController : MonoSingleton<DataController>
     public GameObject titlePanel;
     public GameObject fadePanel;
     public Database data;
+    public string GameDataFileName = "GameData.json";
 
     private void Update()
     {
@@ -24,11 +25,12 @@ public sealed class DataController : MonoSingleton<DataController>
     {
         data = new Database();
         data.InitData();
+        SaveData();
     }
 
     void LoadData()
     {
-        string filePath = Path.Combine(Application.dataPath, "GameData.Json");
+        string filePath = Application.persistentDataPath + GameDataFileName;
         string FromJsonData = File.ReadAllText(filePath);
         data = JsonUtility.FromJson<Database>(FromJsonData);
         data.DeserializeObject();
@@ -38,7 +40,7 @@ public sealed class DataController : MonoSingleton<DataController>
     void SaveData()
     {
         string ToJsonData = JsonUtility.ToJson(data);
-        string filePath = Path.Combine(Application.dataPath, "GameData.Json");
+        string filePath = Application.persistentDataPath + GameDataFileName;
         File.WriteAllText(filePath, ToJsonData);
     }
 
